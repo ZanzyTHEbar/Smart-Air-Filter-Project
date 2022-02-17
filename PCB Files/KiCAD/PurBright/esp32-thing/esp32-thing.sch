@@ -1,0 +1,2599 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 19131 12568
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	3800 5700 3800 5600
+Wire Wire Line
+	3800 5600 3800 5400
+Wire Wire Line
+	4000 5700 3800 5700
+Wire Wire Line
+	4000 5800 3800 5800
+Wire Wire Line
+	3800 5800 3800 5700
+Wire Wire Line
+	4000 5900 3800 5900
+Wire Wire Line
+	3800 5900 3800 5800
+Wire Wire Line
+	4000 5600 3800 5600
+Connection ~ 3800 5700
+Connection ~ 3800 5800
+Connection ~ 3800 5600
+Text Label 3800 5700 0    10   ~ 0
+3.3V
+Wire Wire Line
+	13000 9600 13000 9700
+Text Label 13000 9600 0    10   ~ 0
+3.3V
+Wire Wire Line
+	11600 5700 11600 5600
+Wire Wire Line
+	11700 5700 11600 5700
+Text Label 11600 5700 0    10   ~ 0
+3.3V
+Wire Wire Line
+	3800 2300 3900 2300
+Wire Wire Line
+	3900 2300 4100 2300
+Wire Wire Line
+	4100 2300 4100 2400
+Wire Wire Line
+	3900 2300 3900 2200
+Wire Wire Line
+	4100 2300 4700 2300
+Wire Wire Line
+	4700 2400 4700 2300
+Connection ~ 3900 2300
+Connection ~ 4100 2300
+Text Label 3800 2300 0    10   ~ 0
+3.3V
+Wire Wire Line
+	2700 10500 2700 10600
+Text Label 2700 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	3500 10500 3500 10600
+Text Label 3500 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	4300 10500 4300 10600
+Text Label 4300 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	4900 10500 4900 10600
+Text Label 4900 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	5700 10500 5700 10600
+Text Label 5700 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	7300 10500 7300 10600
+Text Label 7300 10500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	15400 9500 16000 9500
+Wire Wire Line
+	16000 9500 16000 9400
+Text Label 15400 9500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	17100 9500 17500 9500
+Wire Wire Line
+	17500 9500 17500 9400
+Text Label 17100 9500 0    10   ~ 0
+3.3V
+Wire Wire Line
+	12900 8100 12900 8200
+Text Label 12900 8100 0    10   ~ 0
+3.3V
+Wire Wire Line
+	4000 6100 3900 6100
+Text Label 3900 6100 2    50   ~ 0
+CHIP_PU
+Wire Wire Line
+	12900 10200 13000 10200
+Wire Wire Line
+	13000 10200 13100 10200
+Wire Wire Line
+	13000 10100 13000 10200
+Text Label 13100 10200 0    50   ~ 0
+CHIP_PU
+Connection ~ 13000 10200
+Wire Wire Line
+	15900 5800 15900 5700
+Wire Wire Line
+	15900 5700 15800 5700
+Text Label 15800 5700 2    50   ~ 0
+CHIP_PU
+Wire Wire Line
+	15400 9400 15500 9400
+Text Label 15500 9400 0    50   ~ 0
+CHIP_PU
+Wire Wire Line
+	12500 10200 12400 10200
+Wire Wire Line
+	12400 10200 12400 10300
+Text Label 12500 10200 0    10   ~ 0
+GND
+Wire Wire Line
+	2900 6800 2800 6800
+Wire Wire Line
+	2800 6800 2800 6900
+Wire Wire Line
+	2900 6600 2800 6600
+Wire Wire Line
+	2800 6600 2800 6700
+Wire Wire Line
+	2800 6700 2800 6800
+Wire Wire Line
+	3100 6700 2800 6700
+Connection ~ 2800 6800
+Connection ~ 2800 6700
+Text Label 2900 6800 0    10   ~ 0
+GND
+Wire Wire Line
+	10500 6400 10400 6400
+Wire Wire Line
+	10400 6400 10400 6500
+Text Label 10500 6400 0    10   ~ 0
+GND
+Wire Wire Line
+	12400 6500 12400 6400
+Text Label 12400 6500 0    10   ~ 0
+GND
+Wire Wire Line
+	2600 7200 2600 7100
+Text Label 2600 7200 0    10   ~ 0
+GND
+Wire Wire Line
+	2100 6900 2100 7200
+Text Label 2100 6900 0    10   ~ 0
+GND
+Wire Wire Line
+	1700 6300 1700 7200
+Text Label 1700 6300 0    10   ~ 0
+GND
+Wire Wire Line
+	13200 2800 13200 2600
+Text Label 13200 2800 0    10   ~ 0
+GND
+Wire Wire Line
+	12800 2400 12800 2800
+Wire Wire Line
+	12800 2400 12700 2400
+Text Label 12800 2400 0    10   ~ 0
+GND
+Wire Wire Line
+	13800 2800 13800 2600
+Text Label 13800 2800 0    10   ~ 0
+GND
+Wire Wire Line
+	13600 2800 13600 2600
+Text Label 13600 2800 0    10   ~ 0
+GND
+Wire Wire Line
+	15500 2900 15400 2900
+Wire Wire Line
+	15400 2900 15400 3100
+Wire Wire Line
+	15500 2800 15400 2800
+Wire Wire Line
+	15400 2800 15400 2900
+Connection ~ 15400 2900
+Text Label 15500 2900 0    10   ~ 0
+GND
+Wire Wire Line
+	15200 3100 15200 2800
+Text Label 15200 3100 0    10   ~ 0
+GND
+Wire Wire Line
+	15000 3100 15000 2800
+Text Label 15000 3100 0    10   ~ 0
+GND
+Wire Wire Line
+	14600 3100 14600 2800
+Text Label 14600 3100 0    10   ~ 0
+GND
+Wire Wire Line
+	3100 2700 3000 2700
+Wire Wire Line
+	3000 2700 3000 2800
+Text Label 3100 2700 0    10   ~ 0
+GND
+Wire Wire Line
+	4100 2800 4100 2700
+Text Label 4100 2800 0    10   ~ 0
+GND
+Wire Wire Line
+	2800 2700 2800 2800
+Text Label 2800 2700 0    10   ~ 0
+GND
+Wire Wire Line
+	8900 2000 8800 2000
+Wire Wire Line
+	8800 2000 8800 2500
+Text Label 8900 2000 0    10   ~ 0
+GND
+Wire Wire Line
+	8000 2200 8000 2100
+Text Label 8000 2200 0    10   ~ 0
+GND
+Wire Wire Line
+	1500 2600 1500 2500
+Text Label 1500 2600 0    10   ~ 0
+GND
+Wire Wire Line
+	7400 1900 7500 1900
+Wire Wire Line
+	7500 1900 7500 2000
+Text Label 7400 1900 0    10   ~ 0
+GND
+Wire Wire Line
+	8600 2500 8600 2400
+Text Label 8600 2500 0    10   ~ 0
+GND
+Wire Wire Line
+	8400 2900 8400 3000
+Text Label 8400 2900 0    10   ~ 0
+GND
+Wire Wire Line
+	10400 2300 10400 2200
+Text Label 10400 2300 0    10   ~ 0
+GND
+Wire Wire Line
+	2700 11000 2700 10900
+Text Label 2700 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	3500 11000 3500 10900
+Text Label 3500 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	4300 11000 4300 10900
+Text Label 4300 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	4900 11000 4900 10900
+Text Label 4900 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	5700 11000 5700 10900
+Text Label 5700 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	6500 11000 6500 10900
+Text Label 6500 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	7300 11000 7300 10900
+Text Label 7300 11000 0    10   ~ 0
+GND
+Wire Wire Line
+	4700 3700 4700 3800
+Text Label 4700 3700 0    10   ~ 0
+GND
+Wire Wire Line
+	9900 8800 9900 8700
+Text Label 9900 8800 0    10   ~ 0
+GND
+Wire Wire Line
+	10300 8800 10300 8700
+Text Label 10300 8800 0    10   ~ 0
+GND
+Wire Wire Line
+	15500 9900 15400 9900
+Wire Wire Line
+	15500 10000 15500 9900
+Wire Wire Line
+	15400 9600 15500 9600
+Wire Wire Line
+	15500 9900 15500 9600
+Connection ~ 15500 9900
+Text Label 15500 9900 0    10   ~ 0
+GND
+Wire Wire Line
+	17100 9900 17200 9900
+Wire Wire Line
+	17100 9600 17200 9600
+Wire Wire Line
+	17200 9900 17200 9600
+Wire Wire Line
+	17200 9900 17200 10000
+Connection ~ 17200 9900
+Text Label 17100 9900 0    10   ~ 0
+GND
+Wire Wire Line
+	12400 8700 12300 8700
+Wire Wire Line
+	12300 8700 12300 8800
+Text Label 12400 8700 0    10   ~ 0
+GND
+Wire Wire Line
+	10000 10800 10000 10900
+Text Label 10000 10800 0    10   ~ 0
+GND
+Wire Wire Line
+	3000 9100 3000 8800
+Text Label 3000 9100 0    10   ~ 0
+GND
+Wire Wire Line
+	3900 8600 4000 8600
+Wire Wire Line
+	3900 8600 3900 9100
+Text Label 3900 8600 0    10   ~ 0
+GND
+Wire Wire Line
+	17100 8000 17700 8000
+Wire Wire Line
+	17700 8000 17700 8100
+Text Label 17100 8000 0    10   ~ 0
+GND
+Wire Wire Line
+	4000 6400 2600 6400
+Wire Wire Line
+	2600 6400 2600 6500
+Wire Wire Line
+	2600 6400 2500 6400
+Connection ~ 2600 6400
+Wire Wire Line
+	4000 7000 3900 7000
+Text Label 3900 7000 2    50   ~ 0
+32K_XP
+Wire Wire Line
+	10000 8300 9900 8300
+Wire Wire Line
+	9900 8300 9900 8400
+Wire Wire Line
+	9900 8300 9800 8300
+Connection ~ 9900 8300
+Text Label 9800 8300 2    50   ~ 0
+32K_XP
+Wire Wire Line
+	15400 8400 15500 8400
+Text Label 15500 8400 0    50   ~ 0
+32K_XP
+Wire Wire Line
+	4000 7100 3900 7100
+Text Label 3900 7100 2    50   ~ 0
+32K_XN
+Wire Wire Line
+	10200 8300 10300 8300
+Wire Wire Line
+	10300 8300 10300 8400
+Wire Wire Line
+	10300 8300 10400 8300
+Connection ~ 10300 8300
+Text Label 10400 8300 0    50   ~ 0
+32K_XN
+Wire Wire Line
+	15400 8500 15500 8500
+Text Label 15500 8500 0    50   ~ 0
+32K_XN
+Wire Wire Line
+	4000 7400 3800 7400
+Text Label 3800 7400 2    50   ~ 0
+34
+Wire Wire Line
+	15400 8600 15500 8600
+Text Label 15500 8600 0    50   ~ 0
+34
+Wire Wire Line
+	4000 7500 3800 7500
+Text Label 3800 7500 2    50   ~ 0
+35
+Wire Wire Line
+	15400 8700 15500 8700
+Text Label 15500 8700 0    50   ~ 0
+35
+Wire Wire Line
+	3500 8100 4000 8100
+Text Label 3800 8100 0    70   ~ 0
+39
+Wire Wire Line
+	15400 8300 15500 8300
+Text Label 15500 8300 0    50   ~ 0
+39
+Wire Wire Line
+	3100 8000 3100 8100
+Wire Wire Line
+	3100 8100 3200 8100
+Wire Wire Line
+	4000 8000 3100 8000
+Text Label 3800 8000 0    70   ~ 0
+38
+Wire Wire Line
+	15400 8200 15500 8200
+Text Label 15500 8200 0    50   ~ 0
+38
+Wire Wire Line
+	15400 8000 15500 8000
+Text Label 15500 8000 0    50   ~ 0
+36
+Wire Wire Line
+	3500 7800 4000 7800
+Text Label 3800 7800 0    70   ~ 0
+36
+Wire Wire Line
+	15400 8100 15500 8100
+Text Label 15500 8100 0    50   ~ 0
+37
+Wire Wire Line
+	3200 7800 3100 7800
+Wire Wire Line
+	3100 7800 3100 7900
+Wire Wire Line
+	3100 7900 4000 7900
+Text Label 3800 7900 0    70   ~ 0
+37
+Wire Wire Line
+	4000 8300 3200 8300
+Wire Wire Line
+	3200 8300 3000 8300
+Wire Wire Line
+	3000 8300 3000 8500
+Wire Wire Line
+	3400 8700 3200 8700
+Wire Wire Line
+	3200 8700 3200 8500
+Wire Wire Line
+	3200 8500 3200 8300
+Wire Wire Line
+	3300 8500 3200 8500
+Connection ~ 3200 8300
+Connection ~ 3200 8500
+Wire Wire Line
+	8000 8600 8100 8600
+Text Label 8100 8600 0    50   ~ 0
+15
+Wire Wire Line
+	17100 8900 17200 8900
+Text Label 17200 8900 0    50   ~ 0
+15
+Wire Wire Line
+	8000 8500 8100 8500
+Text Label 8100 8500 0    50   ~ 0
+14
+Wire Wire Line
+	15400 9100 15500 9100
+Text Label 15500 9100 0    50   ~ 0
+14
+Wire Wire Line
+	8000 8400 8100 8400
+Text Label 8100 8400 0    50   ~ 0
+13
+Wire Wire Line
+	15400 9300 15500 9300
+Text Label 15500 9300 0    50   ~ 0
+13
+Wire Wire Line
+	8000 8300 8100 8300
+Text Label 8100 8300 0    50   ~ 0
+12
+Wire Wire Line
+	15400 9200 15500 9200
+Text Label 15500 9200 0    50   ~ 0
+12
+Wire Wire Line
+	10500 6300 10400 6300
+Text Label 10400 6300 2    50   ~ 0
+FLASH_SWP
+Wire Wire Line
+	8000 8000 8100 8000
+Text Label 8100 8000 0    50   ~ 0
+FLASH_SWP
+Wire Wire Line
+	11700 6200 11800 6200
+Text Label 11800 6200 0    50   ~ 0
+FLASH_SHD
+Wire Wire Line
+	8000 7900 8100 7900
+Text Label 8100 7900 0    50   ~ 0
+FLASH_SHD
+Wire Wire Line
+	11700 6400 11800 6400
+Text Label 11800 6400 0    50   ~ 0
+FLASH_SDI
+Wire Wire Line
+	8000 7800 8100 7800
+Text Label 8100 7800 0    50   ~ 0
+FLASH_SDI
+Wire Wire Line
+	10500 6200 10400 6200
+Text Label 10400 6200 2    50   ~ 0
+FLASH_SDO
+Wire Wire Line
+	8000 7700 8100 7700
+Text Label 8100 7700 0    50   ~ 0
+FLASH_SDO
+Wire Wire Line
+	11700 6300 11800 6300
+Text Label 11800 6300 0    50   ~ 0
+FLASH_SCK
+Wire Wire Line
+	8000 7600 8100 7600
+Text Label 8100 7600 0    50   ~ 0
+FLASH_SCK
+Wire Wire Line
+	10500 6100 10400 6100
+Text Label 10400 6100 2    50   ~ 0
+FLASH_SCS
+Wire Wire Line
+	8000 8100 8100 8100
+Text Label 8100 8100 0    50   ~ 0
+FLASH_SCS
+Wire Wire Line
+	11700 6100 11900 6100
+Wire Wire Line
+	11900 6100 11900 6000
+Wire Wire Line
+	11900 6000 11900 5900
+Wire Wire Line
+	12400 6100 12400 6000
+Wire Wire Line
+	12400 6000 11900 6000
+Connection ~ 11900 6000
+Wire Wire Line
+	12100 5700 12200 5700
+Text Label 12200 5700 0    50   ~ 0
+FLASH_VDD
+Wire Wire Line
+	8000 7500 8100 7500
+Text Label 8100 7500 0    50   ~ 0
+FLASH_VDD
+Wire Wire Line
+	6500 10600 6500 10500
+Wire Wire Line
+	6500 10500 6800 10500
+Wire Wire Line
+	6800 10500 6800 10400
+Wire Wire Line
+	6800 10400 6700 10400
+Text Label 6700 10400 2    50   ~ 0
+FLASH_VDD
+Wire Wire Line
+	8000 7300 8100 7300
+Text Label 8100 7300 0    50   ~ 0
+27
+Wire Wire Line
+	15400 9000 15500 9000
+Text Label 15500 9000 0    50   ~ 0
+27
+Wire Wire Line
+	8000 7200 8100 7200
+Text Label 8100 7200 0    50   ~ 0
+26
+Wire Wire Line
+	15400 8900 15500 8900
+Text Label 15500 8900 0    50   ~ 0
+26
+Wire Wire Line
+	17100 8600 17200 8600
+Text Label 17200 8600 0    50   ~ 0
+23
+Wire Wire Line
+	8000 7000 8100 7000
+Text Label 8100 7000 0    50   ~ 0
+23
+Wire Wire Line
+	8000 6900 8100 6900
+Text Label 8100 6900 0    50   ~ 0
+22
+Wire Wire Line
+	17100 8400 17200 8400
+Text Label 17200 8400 0    50   ~ 0
+22
+Wire Wire Line
+	8000 6800 8100 6800
+Text Label 8100 6800 0    50   ~ 0
+21
+Wire Wire Line
+	17100 8100 17200 8100
+Text Label 17200 8100 0    50   ~ 0
+21
+Wire Wire Line
+	8000 6600 8100 6600
+Text Label 8100 6600 0    50   ~ 0
+19
+Wire Wire Line
+	17100 8500 17200 8500
+Text Label 17200 8500 0    50   ~ 0
+19
+Wire Wire Line
+	8000 6500 8100 6500
+Text Label 8100 6500 0    50   ~ 0
+18
+Wire Wire Line
+	17100 8700 17200 8700
+Text Label 17200 8700 0    50   ~ 0
+18
+Wire Wire Line
+	8000 6300 8100 6300
+Text Label 8100 6300 0    50   ~ 0
+16
+Wire Wire Line
+	17100 9400 17200 9400
+Text Label 17200 9400 0    50   ~ 0
+16
+Wire Wire Line
+	8000 6200 8100 6200
+Text Label 8100 6200 0    50   ~ 0
+5
+Wire Wire Line
+	17100 8800 17200 8800
+Text Label 17200 8800 0    50   ~ 0
+5
+Wire Wire Line
+	10000 9900 9900 9900
+Wire Wire Line
+	10000 10000 10000 9900
+Text Label 9900 9900 2    50   ~ 0
+5
+Wire Wire Line
+	8000 6100 8100 6100
+Text Label 8100 6100 0    50   ~ 0
+4
+Wire Wire Line
+	17100 9200 17200 9200
+Text Label 17200 9200 0    50   ~ 0
+4
+Wire Wire Line
+	8000 6000 8100 6000
+Text Label 8100 6000 0    50   ~ 0
+2
+Wire Wire Line
+	17100 9000 17200 9000
+Text Label 17200 9000 0    50   ~ 0
+2
+Wire Wire Line
+	8000 5700 8100 5700
+Text Label 8100 5700 0    50   ~ 0
+U0RXD
+Wire Wire Line
+	16500 1700 16600 1700
+Text Label 16600 1700 0    50   ~ 0
+U0RXD
+Wire Wire Line
+	17100 8300 17200 8300
+Text Label 17200 8300 0    50   ~ 0
+U0RXD
+Wire Wire Line
+	8000 5600 8100 5600
+Text Label 8100 5600 0    50   ~ 0
+U0TXD
+Wire Wire Line
+	16500 1800 16600 1800
+Text Label 16600 1800 0    50   ~ 0
+U0TXD
+Wire Wire Line
+	17100 8200 17200 8200
+Text Label 17200 8200 0    50   ~ 0
+U0TXD
+Wire Wire Line
+	8000 7100 8100 7100
+Text Label 8100 7100 0    50   ~ 0
+25
+Wire Wire Line
+	15400 8800 15500 8800
+Text Label 15500 8800 0    50   ~ 0
+25
+Wire Wire Line
+	2200 6400 2100 6400
+Wire Wire Line
+	2100 6400 2100 6600
+Wire Wire Line
+	2100 6400 1800 6400
+Wire Wire Line
+	1800 6400 1800 6300
+Connection ~ 2100 6400
+Wire Wire Line
+	16500 2200 16600 2200
+Text Label 16600 2200 0    50   ~ 0
+DTR
+Wire Wire Line
+	16600 6000 16800 6000
+Wire Wire Line
+	16800 6000 16900 6000
+Wire Wire Line
+	15900 6500 15900 6400
+Wire Wire Line
+	15900 6400 16800 6400
+Wire Wire Line
+	16800 6400 16800 6000
+Text Label 16900 6000 0    50   ~ 0
+DTR
+Connection ~ 16800 6000
+Wire Wire Line
+	13800 1700 14000 1700
+Wire Wire Line
+	14000 1700 14600 1700
+Wire Wire Line
+	14600 1700 15000 1700
+Wire Wire Line
+	15000 1700 15500 1700
+Wire Wire Line
+	15000 2500 15000 1700
+Wire Wire Line
+	14600 2500 14600 1700
+Wire Wire Line
+	14000 1700 14000 1600
+Connection ~ 15000 1700
+Connection ~ 14600 1700
+Connection ~ 14000 1700
+Text Label 13800 1700 0    10   ~ 0
+V_USB
+Wire Wire Line
+	9700 1800 10100 1800
+Wire Wire Line
+	10100 1800 10400 1800
+Wire Wire Line
+	10400 1800 10400 1700
+Wire Wire Line
+	10400 1800 10400 1900
+Wire Wire Line
+	10100 1900 10100 1800
+Connection ~ 10400 1800
+Connection ~ 10100 1800
+Text Label 9700 1800 0    10   ~ 0
+V_USB
+Wire Wire Line
+	1800 2000 1700 2000
+Wire Wire Line
+	1700 2000 1500 2000
+Wire Wire Line
+	1700 2000 1700 2300
+Wire Wire Line
+	1700 2300 1800 2300
+Wire Wire Line
+	1500 2100 1500 2000
+Wire Wire Line
+	1500 1700 1500 2000
+Connection ~ 1700 2000
+Connection ~ 1500 2000
+Text Label 1800 2000 0    10   ~ 0
+V_USB
+Wire Wire Line
+	13600 2100 12700 2100
+Wire Wire Line
+	14100 2100 13600 2100
+Wire Wire Line
+	13600 2100 13600 2300
+Text Label 13400 2100 2    70   ~ 0
+D-
+Connection ~ 13600 2100
+Wire Wire Line
+	13800 2200 12700 2200
+Wire Wire Line
+	14100 2200 13800 2200
+Wire Wire Line
+	13800 2200 13800 2300
+Text Label 13400 2200 2    70   ~ 0
+D+
+Connection ~ 13800 2200
+Wire Wire Line
+	12900 2000 12900 1700
+Wire Wire Line
+	12900 1700 13200 1700
+Wire Wire Line
+	13200 1700 13300 1700
+Wire Wire Line
+	13200 2300 13200 1700
+Wire Wire Line
+	12900 2000 12700 2000
+Wire Wire Line
+	12900 1700 12800 1700
+Connection ~ 13200 1700
+Connection ~ 12900 1700
+Text Label 12800 1700 2    50   ~ 0
+VUSB-RAW
+Wire Wire Line
+	15400 9800 15600 9800
+Text Label 15600 9800 0    50   ~ 0
+VUSB-RAW
+Wire Wire Line
+	17100 9800 17300 9800
+Text Label 17300 9800 0    50   ~ 0
+VUSB-RAW
+Wire Wire Line
+	15500 2100 14500 2100
+Wire Wire Line
+	15500 2200 14500 2200
+Wire Wire Line
+	15200 2500 15200 2400
+Wire Wire Line
+	15200 2400 15500 2400
+Wire Wire Line
+	15200 2400 15200 1900
+Wire Wire Line
+	15200 1900 15500 1900
+Wire Wire Line
+	15200 1900 15200 1800
+Wire Wire Line
+	15200 1800 15500 1800
+Connection ~ 15200 2400
+Connection ~ 15200 1900
+Text Label 15200 1800 0    70   ~ 0
+3.3V_F
+Wire Wire Line
+	3100 2300 3000 2300
+Wire Wire Line
+	3000 2300 2800 2300
+Wire Wire Line
+	2800 2300 2800 2400
+Wire Wire Line
+	2100 2200 2100 2300
+Wire Wire Line
+	2100 2300 2700 2300
+Wire Wire Line
+	2700 2300 2800 2300
+Wire Wire Line
+	2000 2300 2100 2300
+Wire Wire Line
+	2700 2300 2700 2200
+Wire Wire Line
+	3100 2500 3000 2500
+Wire Wire Line
+	3000 2500 3000 2300
+Connection ~ 2800 2300
+Connection ~ 2100 2300
+Connection ~ 2700 2300
+Connection ~ 3000 2300
+Wire Wire Line
+	16500 2000 16600 2000
+Text Label 16600 2000 0    50   ~ 0
+RTS
+Wire Wire Line
+	16600 6700 16700 6700
+Wire Wire Line
+	16700 6700 16800 6700
+Wire Wire Line
+	16700 6700 16700 6300
+Wire Wire Line
+	16700 6300 15900 6300
+Wire Wire Line
+	15900 6300 15900 6200
+Text Label 16800 6700 0    50   ~ 0
+RTS
+Connection ~ 16700 6700
+Wire Wire Line
+	12100 2200 12000 2200
+Text Label 12000 2200 2    50   ~ 0
+SHIELD
+Wire Wire Line
+	9800 2600 10100 2600
+Wire Wire Line
+	9800 2400 9800 2600
+Wire Wire Line
+	10100 2600 10100 2300
+Wire Wire Line
+	9800 2000 9700 2000
+Wire Wire Line
+	9800 2000 9800 2100
+Wire Wire Line
+	8900 1900 8600 1900
+Wire Wire Line
+	8600 1900 8400 1900
+Wire Wire Line
+	8600 2000 8600 1900
+Wire Wire Line
+	8400 1900 8400 2000
+Connection ~ 8600 1900
+Wire Wire Line
+	2100 1700 2100 1800
+Text Label 2100 1700 0    10   ~ 0
+V_BATT
+Wire Wire Line
+	7400 1800 7500 1800
+Wire Wire Line
+	7500 1800 7500 1700
+Wire Wire Line
+	7500 1700 7500 1600
+Wire Wire Line
+	8000 1800 8000 1700
+Wire Wire Line
+	7500 1700 8000 1700
+Wire Wire Line
+	8800 1800 8900 1800
+Wire Wire Line
+	8800 1800 8800 1700
+Wire Wire Line
+	8000 1700 8800 1700
+Connection ~ 7500 1700
+Connection ~ 8000 1700
+Text Label 7400 1800 0    10   ~ 0
+V_BATT
+Wire Wire Line
+	15400 9700 16100 9700
+Wire Wire Line
+	16100 9700 16100 9600
+Text Label 15400 9700 0    10   ~ 0
+V_BATT
+Wire Wire Line
+	17100 9700 17600 9700
+Wire Wire Line
+	17600 9700 17600 9600
+Text Label 17100 9700 0    10   ~ 0
+V_BATT
+Wire Wire Line
+	8400 2400 8400 2500
+Wire Wire Line
+	16200 6000 16100 6000
+Wire Wire Line
+	16200 6700 16100 6700
+Wire Wire Line
+	3300 6600 3700 6600
+Wire Wire Line
+	3700 6600 3700 6700
+Wire Wire Line
+	3700 6700 4000 6700
+Wire Wire Line
+	3300 6600 3200 6600
+Connection ~ 3300 6600
+Wire Wire Line
+	4000 6800 3300 6800
+Wire Wire Line
+	3300 6800 3200 6800
+Connection ~ 3300 6800
+Wire Wire Line
+	8000 5900 8100 5900
+Text Label 8100 5900 0    50   ~ 0
+0
+Wire Wire Line
+	15900 7000 15800 7000
+Wire Wire Line
+	15900 7000 15900 6900
+Text Label 15800 7000 2    50   ~ 0
+0
+Wire Wire Line
+	17100 9100 17200 9100
+Text Label 17200 9100 0    50   ~ 0
+0
+Wire Wire Line
+	12800 8700 12900 8700
+Wire Wire Line
+	12900 8700 13000 8700
+Wire Wire Line
+	12900 8600 12900 8700
+Text Label 13000 8700 0    50   ~ 0
+0
+Connection ~ 12900 8700
+Wire Wire Line
+	8000 6400 8100 6400
+Text Label 8100 6400 0    50   ~ 0
+17
+Wire Wire Line
+	17100 9300 17200 9300
+Text Label 17200 9300 0    50   ~ 0
+17
+Wire Wire Line
+	4700 3400 4700 3300
+Wire Wire Line
+	4700 2900 4700 2800
+Wire Wire Line
+	10000 10300 10000 10400
+Wire Wire Line
+	3700 8700 3800 8700
+Wire Wire Line
+	3800 8700 3800 8500
+Wire Wire Line
+	3800 8500 3800 8400
+Wire Wire Line
+	3800 8400 4000 8400
+Wire Wire Line
+	3700 8500 3800 8500
+Connection ~ 3800 8500
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY01
+U 1 1 F54A36B8
+P 3800 5400
+F 0 "#SUPPLY01" H 3800 5400 50  0001 C CNN
+F 1 "3.3V" H 3760 5540 59  0000 L BNN
+F 2 "" H 3800 5400 50  0001 C CNN
+F 3 "" H 3800 5400 50  0001 C CNN
+	1    3800 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:SWITCH-MOMENTARY-2SMD-4.6X2.8MM S1
+U 1 1 001D5DFA
+P 12700 10200
+F 0 "S1" H 12600 10300 59  0000 L BNN
+F 1 "RESET" H 12600 10100 59  0000 L BNN
+F 2 "esp32-thing:TACTILE_SWITCH_SMD_4.6X2.8MM" H 12700 10200 50  0001 C CNN
+F 3 "" H 12700 10200 50  0001 C CNN
+	1    12700 10200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND01
+U 1 1 8DA2BB24
+P 12400 10400
+F 0 "#GND01" H 12400 10400 50  0001 C CNN
+F 1 "GND" H 12400 10390 59  0000 C TNN
+F 2 "" H 12400 10400 50  0001 C CNN
+F 3 "" H 12400 10400 50  0001 C CNN
+	1    12400 10400
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10KOHM-1_10W-1%(0603)0603 R1
+U 1 1 5FC72806
+P 13000 9900
+F 0 "R1" H 13000 9960 70  0000 C BNN
+F 1 "10k" H 13000 9840 70  0000 C TNN
+F 2 "esp32-thing:0603" H 13000 9900 50  0001 C CNN
+F 3 "" H 13000 9900 50  0001 C CNN
+	1    13000 9900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY02
+U 1 1 19032892
+P 13000 9600
+F 0 "#SUPPLY02" H 13000 9600 50  0001 C CNN
+F 1 "3.3V" H 12960 9740 59  0000 L BNN
+F 2 "" H 13000 9600 50  0001 C CNN
+F 3 "" H 13000 9600 50  0001 C CNN
+	1    13000 9600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND02
+U 1 1 4877C9E2
+P 2800 7000
+F 0 "#GND02" H 2800 7000 50  0001 C CNN
+F 1 "GND" H 2800 6990 59  0000 C TNN
+F 2 "" H 2800 7000 50  0001 C CNN
+F 3 "" H 2800 7000 50  0001 C CNN
+	1    2800 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:CRYSTAL-GROUNDED3.2X2.5 Y1
+U 1 1 5F80E6C4
+P 3300 6700
+F 0 "Y1" V 3260 6780 59  0000 L CNN
+F 1 "26MHz" V 3340 6780 59  0000 L CNN
+F 2 "esp32-thing:CRYSTAL-SMD-3.2X2.5" H 3300 6700 50  0001 C CNN
+F 3 "" H 3300 6700 50  0001 C CNN
+F 4 "XTAL-12454" H 3300 6700 59  0001 L BNN "PROD_ID"
+	1    3300 6700
+	0    1    1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10PF-0603-50V-5% C3
+U 1 1 FC9713C3
+P 3100 6600
+F 0 "C3" V 3110 6700 70  0000 L TNN
+F 1 "10pF" V 3110 6600 70  0000 R TNN
+F 2 "esp32-thing:0603" H 3100 6600 50  0001 C CNN
+F 3 "" H 3100 6600 50  0001 C CNN
+	1    3100 6600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10PF-0603-50V-5% C4
+U 1 1 77069C78
+P 3100 6800
+F 0 "C4" V 3110 6900 70  0000 L TNN
+F 1 "10pF" V 3110 6800 70  0000 R TNN
+F 2 "esp32-thing:0603" H 3100 6800 50  0001 C CNN
+F 3 "" H 3100 6800 50  0001 C CNN
+	1    3100 6800
+	0    -1   1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:270PF-50V-5%(0603) C1
+U 1 1 780BDFA5
+P 3400 7800
+F 0 "C1" V 3410 7900 59  0000 L TNN
+F 1 "270pF" V 3410 7800 59  0000 R TNN
+F 2 "esp32-thing:0603" H 3400 7800 50  0001 C CNN
+F 3 "" H 3400 7800 50  0001 C CNN
+	1    3400 7800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:270PF-50V-5%(0603) C2
+U 1 1 1C8F6D15
+P 3400 8100
+F 0 "C2" V 3410 8200 59  0000 L TNN
+F 1 "270pF" V 3410 8100 59  0000 R TNN
+F 2 "esp32-thing:0603" H 3400 8100 50  0001 C CNN
+F 3 "" H 3400 8100 50  0001 C CNN
+	1    3400 8100
+	0    -1   1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10NF-0603-50V-10% C5
+U 1 1 CE98EFB0
+P 3000 8600
+F 0 "C5" H 3060 8715 70  0000 L BNN
+F 1 "10nF" H 3060 8515 70  0000 L BNN
+F 2 "esp32-thing:0603" H 3000 8600 50  0001 C CNN
+F 3 "" H 3000 8600 50  0001 C CNN
+	1    3000 8600
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:20KOHM-0603-1_10W-1% R2
+U 1 1 37CABFCF
+P 3500 8500
+F 0 "R2" H 3500 8560 70  0000 C BNN
+F 1 "20k" H 3500 8440 70  0000 C TNN
+F 2 "esp32-thing:0603" H 3500 8500 50  0001 C CNN
+F 3 "" H 3500 8500 50  0001 C CNN
+	1    3500 8500
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND03
+U 1 1 21137572
+P 3000 9200
+F 0 "#GND03" H 3000 9200 50  0001 C CNN
+F 1 "GND" H 3000 9190 59  0000 C TNN
+F 2 "" H 3000 9200 50  0001 C CNN
+F 3 "" H 3000 9200 50  0001 C CNN
+	1    3000 9200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND035
+U 1 1 A522C48C
+P 10400 6600
+F 0 "#GND035" H 10400 6600 50  0001 C CNN
+F 1 "GND" H 10400 6590 59  0000 C TNN
+F 2 "" H 10400 6600 50  0001 C CNN
+F 3 "" H 10400 6600 50  0001 C CNN
+	1    10400 6600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND036
+U 1 1 CF583ECA
+P 12400 6600
+F 0 "#GND036" H 12400 6600 50  0001 C CNN
+F 1 "GND" H 12400 6590 59  0000 C TNN
+F 2 "" H 12400 6600 50  0001 C CNN
+F 3 "" H 12400 6600 50  0001 C CNN
+	1    12400 6600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:W25Q32FVSS U5
+U 1 1 E3998434
+P 11100 6200
+F 0 "U5" H 10600 6410 59  0000 L BNN
+F 1 "W25Q32FVSS" H 10600 5890 59  0000 L TNN
+F 2 "esp32-thing:SOIC-8" H 11100 6200 50  0001 C CNN
+F 3 "" H 11100 6200 50  0001 C CNN
+	1    11100 6200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C17
+U 1 1 46EAFDFE
+P 12400 6300
+F 0 "C17" H 12460 6415 70  0000 L BNN
+F 1 "0.1uF" H 12460 6215 70  0000 L BNN
+F 2 "esp32-thing:0603" H 12400 6300 50  0001 C CNN
+F 3 "" H 12400 6300 50  0001 C CNN
+	1    12400 6300
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY03
+U 1 1 4F8E092B
+P 11600 5600
+F 0 "#SUPPLY03" H 11600 5600 50  0001 C CNN
+F 1 "3.3V" H 11560 5740 59  0000 L BNN
+F 2 "" H 11600 5600 50  0001 C CNN
+F 3 "" H 11600 5600 50  0001 C CNN
+	1    11600 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:JUMPER-PAD-3-2OF3_NC_BY_TRACE_SMALL SJ3
+U 1 1 787D351D
+P 11900 5700
+F 0 "SJ3" H 12000 5715 59  0000 L BNN
+F 1 "JUMPER-PAD-3-2OF3_NC_BY_TRACE_SMALL" H 12000 5625 59  0000 L BNN
+F 2 "esp32-thing:PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX" H 11900 5700 50  0001 C CNN
+F 3 "" H 11900 5700 50  0001 C CNN
+	1    11900 5700
+	0    1    -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:FRAME-LEDGER FRAME1
+U 1 1 CC96BE83
+P 1100 11700
+F 0 "FRAME1" H 1100 11700 50  0001 C CNN
+F 1 "FRAME-LEDGER" H 1100 11700 50  0001 C CNN
+F 2 "esp32-thing:CREATIVE_COMMONS" H 1100 11700 50  0001 C CNN
+F 3 "" H 1100 11700 50  0001 C CNN
+	1    1100 11700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:FRAME-LEDGER FRAME1
+U 2 1 CC96BE8F
+P 14100 11700
+F 0 "FRAME1" H 14100 11700 50  0001 C CNN
+F 1 "FRAME-LEDGER" H 14100 11700 50  0001 C CNN
+F 2 "esp32-thing:CREATIVE_COMMONS" H 14100 11700 50  0001 C CNN
+F 3 "" H 14100 11700 50  0001 C CNN
+	2    14100 11700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:INDUCTOR0603 L1
+U 1 1 AE8F7A3D
+P 2600 6800
+F 0 "L1" H 2700 7000 59  0000 L BNN
+F 1 "2.7nH" H 2700 6600 59  0000 L BNN
+F 2 "esp32-thing:0603" H 2600 6800 50  0001 C CNN
+F 3 "" H 2600 6800 50  0001 C CNN
+F 4 "NDUC-08762" H 2600 6800 59  0001 L BNN "PROD_ID"
+	1    2600 6800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:2.4PF-0603-50V-5% C28
+U 1 1 53DC5DD1
+P 2100 6800
+F 0 "C28" H 2160 6915 70  0000 L BNN
+F 1 "2.4pF" H 2160 6715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 2100 6800 50  0001 C CNN
+F 3 "" H 2100 6800 50  0001 C CNN
+	1    2100 6800
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:5.6PF-50V-5%(0603) C8
+U 1 1 84D21171
+P 2300 6400
+F 0 "C8" H 2360 6515 59  0000 L BNN
+F 1 "5.6pF" H 2360 6315 59  0000 L BNN
+F 2 "esp32-thing:0603" H 2300 6400 50  0001 C CNN
+F 3 "" H 2300 6400 50  0001 C CNN
+F 4 "CAP-12456" H 2300 6400 59  0001 L BNN "PROD_ID"
+	1    2300 6400
+	0    1    -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND016
+U 1 1 12C6E2A1
+P 2600 7300
+F 0 "#GND016" H 2600 7300 50  0001 C CNN
+F 1 "GND" H 2600 7290 59  0000 C TNN
+F 2 "" H 2600 7300 50  0001 C CNN
+F 3 "" H 2600 7300 50  0001 C CNN
+	1    2600 7300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND017
+U 1 1 CBB20165
+P 2100 7300
+F 0 "#GND017" H 2100 7300 50  0001 C CNN
+F 1 "GND" H 2100 7290 59  0000 C TNN
+F 2 "" H 2100 7300 50  0001 C CNN
+F 3 "" H 2100 7300 50  0001 C CNN
+	1    2100 7300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:ANTENNATRACE-TUNED E1
+U 1 1 CE606011
+P 1800 5900
+F 0 "E1" H 1950 5600 59  0000 L BNN
+F 1 "ANTENNA" H 1950 5500 59  0000 L BNN
+F 2 "esp32-thing:TRACE_ANTENNA_2.4GHZ_25.7MM_TUNED" H 1800 5900 50  0001 C CNN
+F 3 "" H 1800 5900 50  0001 C CNN
+	1    1800 5900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND019
+U 1 1 F278BC0E
+P 1700 7300
+F 0 "#GND019" H 1700 7300 50  0001 C CNN
+F 1 "GND" H 1700 7290 59  0000 C TNN
+F 2 "" H 1700 7300 50  0001 C CNN
+F 3 "" H 1700 7300 50  0001 C CNN
+	1    1700 7300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C11
+U 1 1 5487FD53
+P 13200 2500
+F 0 "C11" H 13260 2615 70  0000 L BNN
+F 1 "0.1uF" H 13260 2415 70  0000 L BNN
+F 2 "esp32-thing:0603" H 13200 2500 50  0001 C CNN
+F 3 "" H 13200 2500 50  0001 C CNN
+	1    13200 2500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND027
+U 1 1 F8638A93
+P 13200 2900
+F 0 "#GND027" H 13200 2900 50  0001 C CNN
+F 1 "GND" H 13200 2890 59  0000 C TNN
+F 2 "" H 13200 2900 50  0001 C CNN
+F 3 "" H 13200 2900 50  0001 C CNN
+	1    13200 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND026
+U 1 1 3890F70B
+P 12800 2900
+F 0 "#GND026" H 12800 2900 50  0001 C CNN
+F 1 "GND" H 12800 2890 59  0000 C TNN
+F 2 "" H 12800 2900 50  0001 C CNN
+F 3 "" H 12800 2900 50  0001 C CNN
+	1    12800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C14
+U 1 1 15A508F3
+P 14600 2700
+F 0 "C14" H 14660 2815 70  0000 L BNN
+F 1 "0.1uF" H 14660 2615 70  0000 L BNN
+F 2 "esp32-thing:0603" H 14600 2700 50  0001 C CNN
+F 3 "" H 14600 2700 50  0001 C CNN
+	1    14600 2700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:FT231XS U4
+U 1 1 F529F1F8
+P 16000 2300
+F 0 "U4" H 15600 3010 59  0000 L BNN
+F 1 "FT231XS" H 15600 1580 59  0000 L TNN
+F 2 "esp32-thing:SSOP20_L" H 16000 2300 50  0001 C CNN
+F 3 "" H 16000 2300 50  0001 C CNN
+	1    16000 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:27OHM1_10W1%(0603)0603-RES R13
+U 1 1 2A371B9C
+P 14300 2100
+F 0 "R13" H 14120 2159 70  0000 L BNN
+F 1 "27" H 14370 2160 70  0000 L BNN
+F 2 "esp32-thing:0603" H 14300 2100 50  0001 C CNN
+F 3 "" H 14300 2100 50  0001 C CNN
+	1    14300 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:27OHM1_10W1%(0603)0603-RES R14
+U 1 1 25A7F8B8
+P 14300 2200
+F 0 "R14" H 14310 2151 70  0000 R TNN
+F 1 "27" H 14500 2150 70  0000 R TNN
+F 2 "esp32-thing:0603" H 14300 2200 50  0001 C CNN
+F 3 "" H 14300 2200 50  0001 C CNN
+	1    14300 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:47PF-0603-50V-5% C13
+U 1 1 F7DD181D
+P 13800 2500
+F 0 "C13" H 13860 2615 70  0000 L BNN
+F 1 "47pF" H 13860 2415 70  0000 L BNN
+F 2 "esp32-thing:0603" H 13800 2500 50  0001 C CNN
+F 3 "" H 13800 2500 50  0001 C CNN
+	1    13800 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:47PF-0603-50V-5% C12
+U 1 1 DF23C80B
+P 13600 2500
+F 0 "C12" H 13660 2615 70  0000 L BNN
+F 1 "47pF" H 13660 2415 70  0000 L BNN
+F 2 "esp32-thing:0603" H 13600 2500 50  0001 C CNN
+F 3 "" H 13600 2500 50  0001 C CNN
+	1    13600 2500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND029
+U 1 1 B0E7A0AF
+P 13800 2900
+F 0 "#GND029" H 13800 2900 50  0001 C CNN
+F 1 "GND" H 13800 2890 59  0000 C TNN
+F 2 "" H 13800 2900 50  0001 C CNN
+F 3 "" H 13800 2900 50  0001 C CNN
+	1    13800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND028
+U 1 1 D1DF28FE
+P 13600 2900
+F 0 "#GND028" H 13600 2900 50  0001 C CNN
+F 1 "GND" H 13600 2890 59  0000 C TNN
+F 2 "" H 13600 2900 50  0001 C CNN
+F 3 "" H 13600 2900 50  0001 C CNN
+	1    13600 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C16
+U 1 1 5DE9A54D
+P 15200 2700
+F 0 "C16" H 15260 2815 70  0000 L BNN
+F 1 "0.1uF" H 15260 2615 70  0000 L BNN
+F 2 "esp32-thing:0603" H 15200 2700 50  0001 C CNN
+F 3 "" H 15200 2700 50  0001 C CNN
+	1    15200 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND033
+U 1 1 C5585B8D
+P 15400 3200
+F 0 "#GND033" H 15400 3200 50  0001 C CNN
+F 1 "GND" H 15400 3190 59  0000 C TNN
+F 2 "" H 15400 3200 50  0001 C CNN
+F 3 "" H 15400 3200 50  0001 C CNN
+	1    15400 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND032
+U 1 1 FD501343
+P 15200 3200
+F 0 "#GND032" H 15200 3200 50  0001 C CNN
+F 1 "GND" H 15200 3190 59  0000 C TNN
+F 2 "" H 15200 3200 50  0001 C CNN
+F 3 "" H 15200 3200 50  0001 C CNN
+	1    15200 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND031
+U 1 1 01958B23
+P 15000 3200
+F 0 "#GND031" H 15000 3200 50  0001 C CNN
+F 1 "GND" H 15000 3190 59  0000 C TNN
+F 2 "" H 15000 3200 50  0001 C CNN
+F 3 "" H 15000 3200 50  0001 C CNN
+	1    15000 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND030
+U 1 1 A606055F
+P 14600 3200
+F 0 "#GND030" H 14600 3200 50  0001 C CNN
+F 1 "GND" H 14600 3190 59  0000 C TNN
+F 2 "" H 14600 3200 50  0001 C CNN
+F 3 "" H 14600 3200 50  0001 C CNN
+	1    14600 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:PTCSMD F1
+U 1 1 BEAC822B
+P 13500 1700
+F 0 "F1" H 13400 1820 59  0000 L BNN
+F 1 "500mA" H 13370 1500 59  0000 L BNN
+F 2 "esp32-thing:PTC-1206" H 13500 1700 50  0001 C CNN
+F 3 "" H 13500 1700 50  0001 C CNN
+	1    13500 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:USB_MICROB_PLUGCONN-11752 JP15
+U 1 1 4861989B
+P 12400 2200
+F 0 "JP15" H 12210 2520 59  0000 L BNN
+F 1 "USB_MICROB_PLUGCONN-11752" H 12200 1810 59  0000 L BNN
+F 2 "esp32-thing:USB-B-MICRO-SMD_V03" H 12400 2200 50  0001 C CNN
+F 3 "" H 12400 2200 50  0001 C CNN
+	1    12400 2200
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:4.7UF-6.3V-10%(0603)0603 C15
+U 1 1 375F10AF
+P 15000 2700
+F 0 "C15" H 15060 2815 59  0000 L BNN
+F 1 "4.7uF" H 15060 2615 59  0000 L BNN
+F 2 "esp32-thing:0603-CAP" H 15000 2700 50  0001 C CNN
+F 3 "" H 15000 2700 50  0001 C CNN
+	1    15000 2700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND015
+U 1 1 7499CEA7
+P 3000 2900
+F 0 "#GND015" H 3000 2900 50  0001 C CNN
+F 1 "GND" H 3000 2890 59  0000 C TNN
+F 2 "" H 3000 2900 50  0001 C CNN
+F 3 "" H 3000 2900 50  0001 C CNN
+	1    3000 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:1.0UF-0805-25V-(+80_-20%) C7
+U 1 1 2B6F744E
+P 2800 2600
+F 0 "C7" H 2860 2715 70  0000 L BNN
+F 1 "1.0uF" H 2860 2515 70  0000 L BNN
+F 2 "esp32-thing:0805" H 2800 2600 50  0001 C CNN
+F 3 "" H 2800 2600 50  0001 C CNN
+	1    2800 2600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:2.2UF-0603-10V-20% C10
+U 1 1 A69B82AF
+P 4100 2600
+F 0 "C10" H 4160 2715 70  0000 L BNN
+F 1 "2.2uF" H 4160 2515 70  0000 L BNN
+F 2 "esp32-thing:0603" H 4100 2600 50  0001 C CNN
+F 3 "" H 4100 2600 50  0001 C CNN
+	1    4100 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND021
+U 1 1 FF2A2D77
+P 4100 2900
+F 0 "#GND021" H 4100 2900 50  0001 C CNN
+F 1 "GND" H 4100 2890 59  0000 C TNN
+F 2 "" H 4100 2900 50  0001 C CNN
+F 3 "" H 4100 2900 50  0001 C CNN
+	1    4100 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND014
+U 1 1 B9C9B342
+P 2800 2900
+F 0 "#GND014" H 2800 2900 50  0001 C CNN
+F 1 "GND" H 2800 2890 59  0000 C TNN
+F 2 "" H 2800 2900 50  0001 C CNN
+F 3 "" H 2800 2900 50  0001 C CNN
+	1    2800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:MCP73831 U1
+U 1 1 94FABF20
+P 9300 1900
+F 0 "U1" H 9000 2120 59  0000 L BNN
+F 1 "MCP73831" H 9000 1600 59  0000 L BNN
+F 2 "esp32-thing:SOT23-5" H 9300 1900 50  0001 C CNN
+F 3 "" H 9300 1900 50  0001 C CNN
+	1    9300 1900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND09
+U 1 1 FD0A31A1
+P 8800 2600
+F 0 "#GND09" H 8800 2600 50  0001 C CNN
+F 1 "GND" H 8800 2590 59  0000 C TNN
+F 2 "" H 8800 2600 50  0001 C CNN
+F 3 "" H 8800 2600 50  0001 C CNN
+	1    8800 2600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND011
+U 1 1 5518330F
+P 8400 3100
+F 0 "#GND011" H 8400 3100 50  0001 C CNN
+F 1 "GND" H 8400 3090 59  0000 C TNN
+F 2 "" H 8400 3100 50  0001 C CNN
+F 3 "" H 8400 3100 50  0001 C CNN
+	1    8400 3100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND012
+U 1 1 8C4C494A
+P 8000 2300
+F 0 "#GND012" H 8000 2300 50  0001 C CNN
+F 1 "GND" H 7900 2200 59  0000 L BNN
+F 2 "" H 8000 2300 50  0001 C CNN
+F 3 "" H 8000 2300 50  0001 C CNN
+	1    8000 2300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:4.7UF0603 C6
+U 1 1 75552F28
+P 8000 2000
+F 0 "C6" H 8060 2115 70  0000 L BNN
+F 1 "4.7uF" H 8060 1915 70  0000 L BNN
+F 2 "esp32-thing:0603" H 8000 2000 50  0001 C CNN
+F 3 "" H 8000 2000 50  0001 C CNN
+	1    8000 2000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:DIODE-SCHOTTKY-BAT20J D2
+U 1 1 F823A34A
+P 1900 2300
+F 0 "D2" H 1970 2441 59  0000 R TNN
+F 1 "BAT20J" H 2080 2231 59  0000 R TNN
+F 2 "esp32-thing:SOD-323" H 1900 2300 50  0001 C CNN
+F 3 "" H 1900 2300 50  0001 C CNN
+	1    1900 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10KOHM-0603-1_10W-1% R7
+U 1 1 EDDA057D
+P 1500 2300
+F 0 "R7" H 1500 2360 70  0000 C BNN
+F 1 "10k" H 1500 2240 70  0000 C TNN
+F 2 "esp32-thing:0603" H 1500 2300 50  0001 C CNN
+F 3 "" H 1500 2300 50  0001 C CNN
+	1    1500 2300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND013
+U 1 1 85B66688
+P 1500 2700
+F 0 "#GND013" H 1500 2700 50  0001 C CNN
+F 1 "GND" H 1500 2690 59  0000 C TNN
+F 2 "" H 1500 2700 50  0001 C CNN
+F 3 "" H 1500 2700 50  0001 C CNN
+	1    1500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:VIN #SUPPLY07
+U 1 1 2907E397
+P 2700 2200
+F 0 "#SUPPLY07" H 2700 2200 50  0001 C CNN
+F 1 "VIN" H 2660 2340 59  0000 L BNN
+F 2 "" H 2700 2200 50  0001 C CNN
+F 3 "" H 2700 2200 50  0001 C CNN
+	1    2700 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:M02JST-PTH-2 JP2
+U 1 1 3CCD0078
+P 7100 1900
+F 0 "JP2" H 7000 2130 59  0000 L BNN
+F 1 "LiPo" H 7000 1700 59  0000 L BNN
+F 2 "esp32-thing:JST-2-PTH" H 7100 1900 50  0001 C CNN
+F 3 "" H 7100 1900 50  0001 C CNN
+	1    7100 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND04
+U 1 1 12C122FD
+P 7500 2100
+F 0 "#GND04" H 7500 2100 50  0001 C CNN
+F 1 "GND" H 7500 2090 59  0000 C TNN
+F 2 "" H 7500 2100 50  0001 C CNN
+F 3 "" H 7500 2100 50  0001 C CNN
+	1    7500 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:LED-YELLOW0603 D1
+U 1 1 DAF7250D
+P 9800 2300
+F 0 "D1" V 9665 2120 70  0000 L BNN
+F 1 "Yellow" V 9875 2120 70  0000 L TNN
+F 2 "esp32-thing:LED-0603" H 9800 2300 50  0001 C CNN
+F 3 "" H 9800 2300 50  0001 C CNN
+	1    9800 2300
+	1    0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:1KOHM-1_10W-1%(0603) R3
+U 1 1 DF39756A
+P 10100 2100
+F 0 "R3" H 10100 2160 70  0000 C BNN
+F 1 "1K" H 10100 2040 70  0000 C TNN
+F 2 "esp32-thing:0603" H 10100 2100 50  0001 C CNN
+F 3 "" H 10100 2100 50  0001 C CNN
+	1    10100 2100
+	0    -1   1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_REG_LDOSMD U3
+U 1 1 ABF16402
+P 3500 2500
+F 0 "U3" H 3200 2860 59  0000 L BNN
+F 1 "AP2112K-3.3V" H 3200 2050 59  0000 L BNN
+F 2 "esp32-thing:SOT23-5" H 3500 2500 50  0001 C CNN
+F 3 "" H 3500 2500 50  0001 C CNN
+F 4 "VREG-12457" H 3500 2500 59  0001 L BNN "PROD_ID"
+	1    3500 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:MOSFET-PCHANNELDMG2307L Q1
+U 1 1 98CAD41F
+P 2100 2000
+F 0 "Q1" H 2200 2200 59  0000 L BNN
+F 1 "2.5A/30V" H 2200 2100 59  0000 L BNN
+F 2 "esp32-thing:SOT23-3" H 2100 2000 50  0001 C CNN
+F 3 "" H 2100 2000 50  0001 C CNN
+	1    2100 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:2.0KOHM1_10W5%(0603) R6
+U 1 1 2EA577EB
+P 8400 2700
+F 0 "R6" H 8400 2760 70  0000 C BNN
+F 1 "2.0k" H 8400 2640 70  0000 C TNN
+F 2 "esp32-thing:0603" H 8400 2700 50  0001 C CNN
+F 3 "" H 8400 2700 50  0001 C CNN
+	1    8400 2700
+	0    1    -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:RESISTORPTH-1_6W R5
+U 1 1 275D4A71
+P 8600 2200
+F 0 "R5" H 8450 2259 59  0000 L BNN
+F 1 "DNP" H 8450 2070 59  0000 L BNN
+F 2 "esp32-thing:1_6W-RES" H 8600 2200 50  0001 C CNN
+F 3 "" H 8600 2200 50  0001 C CNN
+	1    8600 2200
+	0    1    -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND010
+U 1 1 0087CD10
+P 8600 2600
+F 0 "#GND010" H 8600 2600 50  0001 C CNN
+F 1 "GND" H 8600 2590 59  0000 C TNN
+F 2 "" H 8600 2600 50  0001 C CNN
+F 3 "" H 8600 2600 50  0001 C CNN
+	1    8600 2600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:JUMPER-PAD-2-NC_BY_TRACE SJ1
+U 1 1 589AC6F9
+P 8400 2200
+F 0 "SJ1" H 8300 2300 59  0000 L BNN
+F 1 "JUMPER-PAD-2-NC_BY_TRACE" H 8300 2000 59  0001 L BNN
+F 2 "esp32-thing:PAD-JUMPER-2-NC_BY_TRACE_YES_SILK" H 8400 2200 50  0001 C CNN
+F 3 "" H 8400 2200 50  0001 C CNN
+	1    8400 2200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_USB #SUPPLY014
+U 1 1 C4643C99
+P 14000 1600
+F 0 "#SUPPLY014" H 14000 1600 50  0001 C CNN
+F 1 "V_USB" H 13960 1740 59  0000 L BNN
+F 2 "" H 14000 1600 50  0001 C CNN
+F 3 "" H 14000 1600 50  0001 C CNN
+	1    14000 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_USB #SUPPLY022
+U 1 1 15C4ECC7
+P 1500 1700
+F 0 "#SUPPLY022" H 1500 1700 50  0001 C CNN
+F 1 "V_USB" H 1460 1840 59  0000 L BNN
+F 2 "" H 1500 1700 50  0001 C CNN
+F 3 "" H 1500 1700 50  0001 C CNN
+	1    1500 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_BATT #SUPPLY025
+U 1 1 517FCEE6
+P 7500 1600
+F 0 "#SUPPLY025" H 7500 1600 50  0001 C CNN
+F 1 "V_BATT" H 7460 1740 59  0000 L BNN
+F 2 "" H 7500 1600 50  0001 C CNN
+F 3 "" H 7500 1600 50  0001 C CNN
+	1    7500 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_BATT #SUPPLY027
+U 1 1 19AA1EB1
+P 2100 1700
+F 0 "#SUPPLY027" H 2100 1700 50  0001 C CNN
+F 1 "V_BATT" H 2060 1840 59  0000 L BNN
+F 2 "" H 2100 1700 50  0001 C CNN
+F 3 "" H 2100 1700 50  0001 C CNN
+	1    2100 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:4.7UF0603 C19
+U 1 1 C70CFC49
+P 10400 2100
+F 0 "C19" H 10460 2215 70  0000 L BNN
+F 1 "4.7uF" H 10460 2015 70  0000 L BNN
+F 2 "esp32-thing:0603" H 10400 2100 50  0001 C CNN
+F 3 "" H 10400 2100 50  0001 C CNN
+	1    10400 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_USB #SUPPLY023
+U 1 1 F460BE83
+P 10400 1700
+F 0 "#SUPPLY023" H 10400 1700 50  0001 C CNN
+F 1 "V_USB" H 10360 1840 59  0000 L BNN
+F 2 "" H 10400 1700 50  0001 C CNN
+F 3 "" H 10400 1700 50  0001 C CNN
+	1    10400 1700
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND041
+U 1 1 057C4BD5
+P 10400 2400
+F 0 "#GND041" H 10400 2400 50  0001 C CNN
+F 1 "GND" H 10400 2390 59  0000 C TNN
+F 2 "" H 10400 2400 50  0001 C CNN
+F 3 "" H 10400 2400 50  0001 C CNN
+	1    10400 2400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10KOHM-0603-1_10W-1% R17
+U 1 1 AC3F9421
+P 16400 6000
+F 0 "R17" H 16400 6060 70  0000 C BNN
+F 1 "10k" H 16400 5940 70  0000 C TNN
+F 2 "esp32-thing:0603" H 16400 6000 50  0001 C CNN
+F 3 "" H 16400 6000 50  0001 C CNN
+	1    16400 6000
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10KOHM-0603-1_10W-1% R18
+U 1 1 3D2E9ECA
+P 16400 6700
+F 0 "R18" H 16400 6760 70  0000 C BNN
+F 1 "10k" H 16400 6640 70  0000 C TNN
+F 2 "esp32-thing:0603" H 16400 6700 50  0001 C CNN
+F 3 "" H 16400 6700 50  0001 C CNN
+	1    16400 6700
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY08
+U 1 1 39566F8A
+P 3900 2200
+F 0 "#SUPPLY08" H 3900 2200 50  0001 C CNN
+F 1 "3.3V" H 3860 2340 59  0000 L BNN
+F 2 "" H 3900 2200 50  0001 C CNN
+F 3 "" H 3900 2200 50  0001 C CNN
+	1    3900 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:100PF-0603-50V-5% C18
+U 1 1 457878F4
+P 2700 10800
+F 0 "C18" H 2760 10915 70  0000 L BNN
+F 1 "100pF" H 2760 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 2700 10800 50  0001 C CNN
+F 3 "" H 2700 10800 50  0001 C CNN
+	1    2700 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY09
+U 1 1 B8640D54
+P 2700 10500
+F 0 "#SUPPLY09" H 2700 10500 50  0001 C CNN
+F 1 "3.3V" H 2660 10640 59  0000 L BNN
+F 2 "" H 2700 10500 50  0001 C CNN
+F 3 "" H 2700 10500 50  0001 C CNN
+	1    2700 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND05
+U 1 1 5B6A58CA
+P 2700 11100
+F 0 "#GND05" H 2700 11100 50  0001 C CNN
+F 1 "GND" H 2700 11090 59  0000 C TNN
+F 2 "" H 2700 11100 50  0001 C CNN
+F 3 "" H 2700 11100 50  0001 C CNN
+	1    2700 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C20
+U 1 1 74A5ABB7
+P 3500 10800
+F 0 "C20" H 3560 10915 70  0000 L BNN
+F 1 "0.1uF" H 3560 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 3500 10800 50  0001 C CNN
+F 3 "" H 3500 10800 50  0001 C CNN
+	1    3500 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY010
+U 1 1 28999800
+P 3500 10500
+F 0 "#SUPPLY010" H 3500 10500 50  0001 C CNN
+F 1 "3.3V" H 3460 10640 59  0000 L BNN
+F 2 "" H 3500 10500 50  0001 C CNN
+F 3 "" H 3500 10500 50  0001 C CNN
+	1    3500 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND06
+U 1 1 F6847280
+P 3500 11100
+F 0 "#GND06" H 3500 11100 50  0001 C CNN
+F 1 "GND" H 3500 11090 59  0000 C TNN
+F 2 "" H 3500 11100 50  0001 C CNN
+F 3 "" H 3500 11100 50  0001 C CNN
+	1    3500 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C21
+U 1 1 2890C4D1
+P 4300 10800
+F 0 "C21" H 4360 10915 70  0000 L BNN
+F 1 "0.1uF" H 4360 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 4300 10800 50  0001 C CNN
+F 3 "" H 4300 10800 50  0001 C CNN
+	1    4300 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY011
+U 1 1 E0B04C0E
+P 4300 10500
+F 0 "#SUPPLY011" H 4300 10500 50  0001 C CNN
+F 1 "3.3V" H 4260 10640 59  0000 L BNN
+F 2 "" H 4300 10500 50  0001 C CNN
+F 3 "" H 4300 10500 50  0001 C CNN
+	1    4300 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND07
+U 1 1 C2693486
+P 4300 11100
+F 0 "#GND07" H 4300 11100 50  0001 C CNN
+F 1 "GND" H 4300 11090 59  0000 C TNN
+F 2 "" H 4300 11100 50  0001 C CNN
+F 3 "" H 4300 11100 50  0001 C CNN
+	1    4300 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10UF-0603-6.3V-20% C22
+U 1 1 4E259398
+P 4900 10800
+F 0 "C22" H 4960 10915 70  0000 L BNN
+F 1 "10uF" H 4960 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 4900 10800 50  0001 C CNN
+F 3 "" H 4900 10800 50  0001 C CNN
+	1    4900 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY012
+U 1 1 31C2C8A5
+P 4900 10500
+F 0 "#SUPPLY012" H 4900 10500 50  0001 C CNN
+F 1 "3.3V" H 4860 10640 59  0000 L BNN
+F 2 "" H 4900 10500 50  0001 C CNN
+F 3 "" H 4900 10500 50  0001 C CNN
+	1    4900 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND08
+U 1 1 E3161DBF
+P 4900 11100
+F 0 "#GND08" H 4900 11100 50  0001 C CNN
+F 1 "GND" H 4900 11090 59  0000 C TNN
+F 2 "" H 4900 11100 50  0001 C CNN
+F 3 "" H 4900 11100 50  0001 C CNN
+	1    4900 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C23
+U 1 1 365EA109
+P 5700 10800
+F 0 "C23" H 5760 10915 70  0000 L BNN
+F 1 "0.1uF" H 5760 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 5700 10800 50  0001 C CNN
+F 3 "" H 5700 10800 50  0001 C CNN
+	1    5700 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY013
+U 1 1 8D803956
+P 5700 10500
+F 0 "#SUPPLY013" H 5700 10500 50  0001 C CNN
+F 1 "3.3V" H 5660 10640 59  0000 L BNN
+F 2 "" H 5700 10500 50  0001 C CNN
+F 3 "" H 5700 10500 50  0001 C CNN
+	1    5700 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND018
+U 1 1 195191A6
+P 5700 11100
+F 0 "#GND018" H 5700 11100 50  0001 C CNN
+F 1 "GND" H 5700 11090 59  0000 C TNN
+F 2 "" H 5700 11100 50  0001 C CNN
+F 3 "" H 5700 11100 50  0001 C CNN
+	1    5700 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:1.0UF-0603-16V-10% C24
+U 1 1 38947939
+P 6500 10800
+F 0 "C24" H 6560 10915 70  0000 L BNN
+F 1 "1.0uF" H 6560 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 6500 10800 50  0001 C CNN
+F 3 "" H 6500 10800 50  0001 C CNN
+	1    6500 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND022
+U 1 1 A44C21B7
+P 6500 11100
+F 0 "#GND022" H 6500 11100 50  0001 C CNN
+F 1 "GND" H 6500 11090 59  0000 C TNN
+F 2 "" H 6500 11100 50  0001 C CNN
+F 3 "" H 6500 11100 50  0001 C CNN
+	1    6500 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:0.1UF-0603-25V-(+80_-20%) C25
+U 1 1 FAA9EF8F
+P 7300 10800
+F 0 "C25" H 7360 10915 70  0000 L BNN
+F 1 "0.1uF" H 7360 10715 70  0000 L BNN
+F 2 "esp32-thing:0603" H 7300 10800 50  0001 C CNN
+F 3 "" H 7300 10800 50  0001 C CNN
+	1    7300 10800
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY016
+U 1 1 86F85EE9
+P 7300 10500
+F 0 "#SUPPLY016" H 7300 10500 50  0001 C CNN
+F 1 "3.3V" H 7260 10640 59  0000 L BNN
+F 2 "" H 7300 10500 50  0001 C CNN
+F 3 "" H 7300 10500 50  0001 C CNN
+	1    7300 10500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND024
+U 1 1 157BD418
+P 7300 11100
+F 0 "#GND024" H 7300 11100 50  0001 C CNN
+F 1 "GND" H 7300 11090 59  0000 C TNN
+F 2 "" H 7300 11100 50  0001 C CNN
+F 3 "" H 7300 11100 50  0001 C CNN
+	1    7300 11100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:MBT3904DW1T1 Q2
+U 1 1 922177BD
+P 16000 6000
+F 0 "Q2" H 16100 6050 70  0000 L CNN
+F 1 "MBT3904DW1T1" H 16100 5950 70  0000 L CNN
+F 2 "esp32-thing:SC70-6" H 16000 6000 50  0001 C CNN
+F 3 "" H 16000 6000 50  0001 C CNN
+	1    16000 6000
+	-1   0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:MBT3904DW1T1 Q2
+U 2 1 922177B1
+P 16000 6700
+F 0 "Q2" H 16100 6750 70  0000 L CNN
+F 1 "MBT3904DW1T1" H 16100 6650 70  0000 L CNN
+F 2 "esp32-thing:SC70-6" H 16000 6700 50  0001 C CNN
+F 3 "" H 16000 6700 50  0001 C CNN
+	2    16000 6700
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:LED-RED0603 D3
+U 1 1 087B3FA1
+P 4700 3500
+F 0 "D3" V 4565 3320 70  0000 L BNN
+F 1 "RED" V 4775 3320 70  0000 L TNN
+F 2 "esp32-thing:LED-0603" H 4700 3500 50  0001 C CNN
+F 3 "" H 4700 3500 50  0001 C CNN
+	1    4700 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:JUMPER-PAD-2-NC_BY_TRACE SJ2
+U 1 1 15A6EFE6
+P 4700 2600
+F 0 "SJ2" H 4600 2700 59  0000 L BNN
+F 1 "JUMPER-PAD-2-NC_BY_TRACE" H 4600 2400 59  0001 L BNN
+F 2 "esp32-thing:PAD-JUMPER-2-NC_BY_TRACE_YES_SILK" H 4700 2600 50  0001 C CNN
+F 3 "" H 4700 2600 50  0001 C CNN
+	1    4700 2600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:1KOHM-1_10W-1%(0603) R4
+U 1 1 C5ADFEB6
+P 4700 3100
+F 0 "R4" H 4700 3160 70  0000 C BNN
+F 1 "1K" H 4700 3040 70  0000 C TNN
+F 2 "esp32-thing:0603" H 4700 3100 50  0001 C CNN
+F 3 "" H 4700 3100 50  0001 C CNN
+	1    4700 3100
+	0    -1   1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND025
+U 1 1 F212C7DE
+P 4700 3900
+F 0 "#GND025" H 4700 3900 50  0001 C CNN
+F 1 "GND" H 4700 3890 59  0000 C TNN
+F 2 "" H 4700 3900 50  0001 C CNN
+F 3 "" H 4700 3900 50  0001 C CNN
+	1    4700 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:CRYSTAL-32.768KHZSMD-3.2X1.5 Y2
+U 1 1 DFC69C6C
+P 10100 8300
+F 0 "Y2" H 10100 8380 70  0000 C BNN
+F 1 "32.768kHz" H 10100 8220 70  0000 C TNN
+F 2 "esp32-thing:CRYSTAL-SMD-3.2X1.5MM" H 10100 8300 50  0001 C CNN
+F 3 "" H 10100 8300 50  0001 C CNN
+	1    10100 8300
+	1    0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:15PF-0603-50V-5% C9
+U 1 1 A4CF5F6C
+P 9900 8500
+F 0 "C9" H 9960 8615 70  0000 L BNN
+F 1 "15pF" H 9960 8415 70  0000 L BNN
+F 2 "esp32-thing:0603" H 9900 8500 50  0001 C CNN
+F 3 "" H 9900 8500 50  0001 C CNN
+	1    9900 8500
+	-1   0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:15PF-0603-50V-5% C26
+U 1 1 FA794867
+P 10300 8500
+F 0 "C26" H 10360 8615 70  0000 L BNN
+F 1 "15pF" H 10360 8415 70  0000 L BNN
+F 2 "esp32-thing:0603" H 10300 8500 50  0001 C CNN
+F 3 "" H 10300 8500 50  0001 C CNN
+	1    10300 8500
+	1    0    0    1   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND020
+U 1 1 E53A484A
+P 9900 8900
+F 0 "#GND020" H 9900 8900 50  0001 C CNN
+F 1 "GND" H 9900 8890 59  0000 C TNN
+F 2 "" H 9900 8900 50  0001 C CNN
+F 3 "" H 9900 8900 50  0001 C CNN
+	1    9900 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND023
+U 1 1 D027D65F
+P 10300 8900
+F 0 "#GND023" H 10300 8900 50  0001 C CNN
+F 1 "GND" H 10300 8890 59  0000 C TNN
+F 2 "" H 10300 8900 50  0001 C CNN
+F 3 "" H 10300 8900 50  0001 C CNN
+	1    10300 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:M20NOSILK J1
+U 1 1 449C7C68
+P 15000 10100
+F 0 "J1" H 15000 12350 59  0000 L BNN
+F 1 "M20NOSILK" H 15000 10100 59  0000 L BNN
+F 2 "esp32-thing:1X20_NOSILK" H 15000 10100 50  0001 C CNN
+F 3 "" H 15000 10100 50  0001 C CNN
+	1    15000 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:M20NOSILK J2
+U 1 1 C3E76336
+P 16700 10100
+F 0 "J2" H 16700 12350 59  0000 L BNN
+F 1 "M20NOSILK" H 16700 10100 59  0000 L BNN
+F 2 "esp32-thing:1X20_NOSILK" H 16700 10100 50  0001 C CNN
+F 3 "" H 16700 10100 50  0001 C CNN
+	1    16700 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:SWITCH-MOMENTARY-2SMD-4.6X2.8MM S2
+U 1 1 7B4204A4
+P 12600 8700
+F 0 "S2" H 12500 8800 59  0000 L BNN
+F 1 "BTN-0" H 12500 8600 59  0000 L BNN
+F 2 "esp32-thing:TACTILE_SWITCH_SMD_4.6X2.8MM" H 12600 8700 50  0001 C CNN
+F 3 "" H 12600 8700 50  0001 C CNN
+	1    12600 8700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND034
+U 1 1 85A992D2
+P 12300 8900
+F 0 "#GND034" H 12300 8900 50  0001 C CNN
+F 1 "GND" H 12300 8890 59  0000 C TNN
+F 2 "" H 12300 8900 50  0001 C CNN
+F 3 "" H 12300 8900 50  0001 C CNN
+	1    12300 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:SFE_LOGO_NAME.2_INCH LOGO1
+U 1 1 994F8438
+P 11800 11600
+F 0 "LOGO1" H 11800 11600 50  0001 C CNN
+F 1 "SFE_LOGO_NAME.2_INCH" H 11800 11600 50  0001 C CNN
+F 2 "esp32-thing:SFE_LOGO_NAME_.2" H 11800 11600 50  0001 C CNN
+F 3 "" H 11800 11600 50  0001 C CNN
+	1    11800 11600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:LED-BLUE0603 D4
+U 1 1 203FFF5F
+P 10000 10100
+F 0 "D4" V 9865 9920 70  0000 L BNN
+F 1 "BLUE" V 10075 9920 70  0000 L TNN
+F 2 "esp32-thing:LED-0603" H 10000 10100 50  0001 C CNN
+F 3 "" H 10000 10100 50  0001 C CNN
+	1    10000 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:330OHM1_10W1%(0603) R8
+U 1 1 80905056
+P 10000 10600
+F 0 "R8" H 10000 10660 70  0000 C BNN
+F 1 "330" H 10000 10540 70  0000 C TNN
+F 2 "esp32-thing:0603" H 10000 10600 50  0001 C CNN
+F 3 "" H 10000 10600 50  0001 C CNN
+	1    10000 10600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND037
+U 1 1 A56E8B01
+P 10000 11000
+F 0 "#GND037" H 10000 11000 50  0001 C CNN
+F 1 "GND" H 10000 10990 59  0000 C TNN
+F 2 "" H 10000 11000 50  0001 C CNN
+F 3 "" H 10000 11000 50  0001 C CNN
+	1    10000 11000
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:OSHW-LOGOMINI LOGO2
+U 1 1 A926D8F6
+P 1600 11300
+F 0 "LOGO2" H 1600 11300 50  0001 C CNN
+F 1 "OSHW-LOGOMINI" H 1600 11300 50  0001 C CNN
+F 2 "esp32-thing:OSHW-LOGO-MINI" H 1600 11300 50  0001 C CNN
+F 3 "" H 1600 11300 50  0001 C CNN
+	1    1600 11300
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:FIDUCIALUFIDUCIAL FD1
+U 1 1 DF2E628E
+P 18000 10600
+F 0 "FD1" H 18000 10600 50  0001 C CNN
+F 1 "FIDUCIALUFIDUCIAL" H 18000 10600 50  0001 C CNN
+F 2 "esp32-thing:MICRO-FIDUCIAL" H 18000 10600 50  0001 C CNN
+F 3 "" H 18000 10600 50  0001 C CNN
+	1    18000 10600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:FIDUCIALUFIDUCIAL FD2
+U 1 1 B43EF96E
+P 17900 10700
+F 0 "FD2" H 17900 10700 50  0001 C CNN
+F 1 "FIDUCIALUFIDUCIAL" H 17900 10700 50  0001 C CNN
+F 2 "esp32-thing:MICRO-FIDUCIAL" H 17900 10700 50  0001 C CNN
+F 3 "" H 17900 10700 50  0001 C CNN
+	1    17900 10700
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND038
+U 1 1 35D5721E
+P 15500 10100
+F 0 "#GND038" H 15500 10100 50  0001 C CNN
+F 1 "GND" H 15500 10090 59  0000 C TNN
+F 2 "" H 15500 10100 50  0001 C CNN
+F 3 "" H 15500 10100 50  0001 C CNN
+	1    15500 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND039
+U 1 1 76CA36D4
+P 17200 10100
+F 0 "#GND039" H 17200 10100 50  0001 C CNN
+F 1 "GND" H 17200 10090 59  0000 C TNN
+F 2 "" H 17200 10100 50  0001 C CNN
+F 3 "" H 17200 10100 50  0001 C CNN
+	1    17200 10100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY04
+U 1 1 1C9152C2
+P 16000 9400
+F 0 "#SUPPLY04" H 16000 9400 50  0001 C CNN
+F 1 "3.3V" H 15960 9540 59  0000 L BNN
+F 2 "" H 16000 9400 50  0001 C CNN
+F 3 "" H 16000 9400 50  0001 C CNN
+	1    16000 9400
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY05
+U 1 1 20B1DDDE
+P 17500 9400
+F 0 "#SUPPLY05" H 17500 9400 50  0001 C CNN
+F 1 "3.3V" H 17460 9540 59  0000 L BNN
+F 2 "" H 17500 9400 50  0001 C CNN
+F 3 "" H 17500 9400 50  0001 C CNN
+	1    17500 9400
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_BATT #SUPPLY06
+U 1 1 A7CD5EB6
+P 16100 9600
+F 0 "#SUPPLY06" H 16100 9600 50  0001 C CNN
+F 1 "V_BATT" H 16060 9740 59  0000 L BNN
+F 2 "" H 16100 9600 50  0001 C CNN
+F 3 "" H 16100 9600 50  0001 C CNN
+	1    16100 9600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:V_BATT #SUPPLY015
+U 1 1 2739B52F
+P 17600 9600
+F 0 "#SUPPLY015" H 17600 9600 50  0001 C CNN
+F 1 "V_BATT" H 17560 9740 59  0000 L BNN
+F 2 "" H 17600 9600 50  0001 C CNN
+F 3 "" H 17600 9600 50  0001 C CNN
+	1    17600 9600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:SFE_LOGO_NAME.2_INCH LOGO3
+U 1 1 1EC76B22
+P 11800 11600
+F 0 "LOGO3" H 11800 11600 50  0001 C CNN
+F 1 "SFE_LOGO_NAME.2_INCH" H 11800 11600 50  0001 C CNN
+F 2 "esp32-thing:SFE_LOGO_NAME_.2" H 11800 11600 50  0001 C CNN
+F 3 "" H 11800 11600 50  0001 C CNN
+	1    11800 11600
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:10KOHM-1_10W-1%(0603)0603 R9
+U 1 1 22FF1DF3
+P 12900 8400
+F 0 "R9" H 12900 8460 70  0000 C BNN
+F 1 "10k" H 12900 8340 70  0000 C TNN
+F 2 "esp32-thing:0603" H 12900 8400 50  0001 C CNN
+F 3 "" H 12900 8400 50  0001 C CNN
+	1    12900 8400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.3V #SUPPLY017
+U 1 1 26B7FE90
+P 12900 8100
+F 0 "#SUPPLY017" H 12900 8100 50  0001 C CNN
+F 1 "3.3V" H 12860 8240 59  0000 L BNN
+F 2 "" H 12900 8100 50  0001 C CNN
+F 3 "" H 12900 8100 50  0001 C CNN
+	1    12900 8100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:ESP3212 U2
+U 1 1 4E0AB7A9
+P 6000 7100
+F 0 "U2" H 4100 8710 59  0000 L BNN
+F 1 "ESP3212" H 4100 5490 59  0000 L TNN
+F 2 "esp32-thing:QFN48-0.4MM" H 6000 7100 50  0001 C CNN
+F 3 "" H 6000 7100 50  0001 C CNN
+	1    6000 7100
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:3.0NF-0603-50V-5% C27
+U 1 1 82BC5B6C
+P 3600 8700
+F 0 "C27" H 3660 8815 70  0000 L BNN
+F 1 "3.0nF" H 3660 8615 70  0000 L BNN
+F 2 "esp32-thing:0603" H 3600 8700 50  0001 C CNN
+F 3 "" H 3600 8700 50  0001 C CNN
+	1    3600 8700
+	0    -1   1    0   
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND040
+U 1 1 2B74A96F
+P 3900 9200
+F 0 "#GND040" H 3900 9200 50  0001 C CNN
+F 1 "GND" H 3900 9190 59  0000 C TNN
+F 2 "" H 3900 9200 50  0001 C CNN
+F 3 "" H 3900 9200 50  0001 C CNN
+	1    3900 9200
+	1    0    0    -1  
+$EndComp
+$Comp
+L esp32-thing-eagle-import:GND #GND042
+U 1 1 6D21A43A
+P 17700 8200
+F 0 "#GND042" H 17700 8200 50  0001 C CNN
+F 1 "GND" H 17700 8190 59  0000 C TNN
+F 2 "" H 17700 8200 50  0001 C CNN
+F 3 "" H 17700 8200 50  0001 C CNN
+	1    17700 8200
+	1    0    0    -1  
+$EndComp
+Text Notes 15100 5400 0    75   ~ 0
+Boot Mode Configuration\nPin        Default     Boot   Download\nGPIO0        1         1       0\nU0TXD        1         1       x\nGPIO2        0         x       0\nGPIO4        0         x       x\nMTDO         1         x       x\nGPIO5        1         1       x\nIf U0TXD, GPIO2, GPIO5 are floating, \nGPIO0 determines boot mode
+Text Notes 11200 800  0    85   ~ 0
+FT231XS (USB-to-Serial Converter)
+Text Notes 6400 1300 0    51   ~ 0
+V_BATT should be a single-\ncell LiPo battery.
+Text Notes 8200 3100 0    68   ~ 0
+Charge current:\nI_CHG = 1000 / R_PROG\nR_PROG=2k : I_CHG=500mA
+Text Notes 1200 800  0    85   ~ 0
+Voltage Regulator and Battery Charger
+Text Notes 8200 2500 0    68   ~ 0
+SJ1 can be cut to \nmodify the charge-\ncurrent programming\nresistor.
+Text Notes 6300 800  0    85   ~ 0
+Lithium-Polymer Battery Charger (1-cell)
+Text Notes 3500 3100 0    59   ~ 0
+600mA out\n6V max in
+Text Notes 14200 4200 0    85   ~ 0
+Auto-Reset
+Text Notes 2700 10200 0    42   ~ 0
+Near VDDA\n46, 43
+Text Notes 3500 10200 0    42   ~ 0
+Near VDDA_LNA\n1
+Text Notes 4700 10200 0    42   ~ 0
+Near VDDA3P3\n3, 4
+Wire Notes Line
+	3100 10100 3100 11200
+Wire Notes Line
+	3900 10100 3900 11200
+Wire Notes Line
+	5300 10100 5300 11200
+Text Notes 5700 10200 0    42   ~ 0
+Near VDDPST_CPU\n37
+Wire Notes Line
+	6100 10100 6100 11200
+Text Notes 6500 10200 0    42   ~ 0
+Near VDDPST_SDIO\n26
+Wire Notes Line
+	6900 10100 6900 11200
+Text Notes 7300 10200 0    42   ~ 0
+Near VDDPST_RTC\n19
+Wire Notes Line
+	6200 700  6200 4100
+Wire Notes Line
+	11100 700  11100 4100
+Wire Notes Line
+	14100 7500 18100 7500
+Wire Notes Line
+	14100 9100 11300 9100
+Wire Notes Line
+	11300 9500 8900 9500
+Text Notes 1200 4200 0    85   ~ 0
+Espressif ESP32
+Text Notes 9000 4200 0    85   ~ 0
+W25Q32FVSS - 4MB SPI Flash
+Text Notes 9000 7900 0    85   ~ 0
+32.768kHz RTC Crystal
+Text Notes 11400 7900 0    85   ~ 0
+GPIO0 Button
+Text Notes 11400 9200 0    85   ~ 0
+Reset Button
+Text Notes 9000 9600 0    85   ~ 0
+GPIO5 LED
+Text Notes 14200 7600 0    85   ~ 0
+Headers
+Text Notes 17700 11300 0    85   ~ 0
+v10
+Text Notes 15070 11250 0    85   ~ 0
+Jim Lindblom
+Text Notes 6000 5200 0    80   ~ 0
+ESP32 VCC Range: 2.8-3.6V
+Text Notes 11900 5300 0    80   ~ 0
+SJ3 allows selection between \nFLASH_VDD and 3.3V as the\nvoltage supply to the flash IC.
+Text Notes 4800 2600 0    80   ~ 0
+SJ2 disconnects the\npower LED (for \npower saving).
+Text Notes 16100 7200 0    70   ~ 0
+If DTR is LOW, toggling RTS from HIGH to LOW resets to run mode.\nIf RTS is HIGH, toggling DTR from LOW to HIGH resets to bootloader.
+Text Notes 3400 5700 0    42   ~ 0
+CHIP_PU is the ESP32's enable/reset pin.\nIt must be pulled high to turn the ESP32 on.
+Wire Notes Line
+	3400 5700 3520 6050
+Wire Notes Line
+	8900 4100 8900 11700
+Wire Notes Line
+	8900 7800 14100 7800
+Wire Notes Line
+	11300 7800 11300 11700
+Wire Notes Line
+	1100 4100 18100 4100
+Wire Notes Line
+	14100 4100 14100 10300
+$EndSCHEMATC
