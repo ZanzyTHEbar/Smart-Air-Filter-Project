@@ -1,16 +1,14 @@
 # :man_technologist:
 
-# Purbright Controller
+## Smart Air Filter Project Controller
 
-# :cat: Purbright Controller :cat2:
+## :cat: Air Filter Project for Cats and Home :cat2:
 
-# Purbright Controller README
-
-This repo is dedicated to the **Purbright Controller**, an automated system for purifying cat litter air.
+This repo is dedicated to the **Smart Air Filter Project**, an automated system for purifying cat litter air.
 
 # WHAT IS THIS PROJECT
 
-This project is dedicated to designing PCB and programming files to bring the Purbright product to mass manufacturing.
+This project is dedicated to designing PCB and programming files to bring Smart Air Filtering to the DIY community. Using water as the filtration medium, no need for expensive consumable filters. 
 
 # Things to Do
 
