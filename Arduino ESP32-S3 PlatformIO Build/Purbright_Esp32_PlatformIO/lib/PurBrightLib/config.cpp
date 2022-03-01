@@ -1,6 +1,6 @@
 /*
  mqttconfig.h - Purbright library
- Copyright (c) 2021 Zacariah Austin Heim.
+ Copyright (c) 2021
 */
 #include "config.hpp"
 
