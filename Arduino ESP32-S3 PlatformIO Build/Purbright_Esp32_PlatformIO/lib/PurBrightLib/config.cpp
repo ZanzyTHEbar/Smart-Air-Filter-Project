@@ -95,6 +95,7 @@ bool Config::loadConfig()
         return false;
     }
     
+    //FIXME: For loop over this for better optimisation
     heapStr(&config.hostname, jsonBuffer["hostname"]);
     config.MQTTEnabled = jsonBuffer["MQTTEnabled"]; //
     heapStr(&config.MQTTPort, jsonBuffer["MQTTPort"]);
@@ -143,6 +144,7 @@ bool Config::saveConfig()
     JsonObject json = jsonConfig.to<JsonObject>();
 
     // create a json file from the config struct
+    //FIXME: For loop over this for better optimisation
     json["hostname"] = config.hostname;
     json["MQTTEnabled"] = config.MQTTEnabled;
     json["MQTTPort"] = config.MQTTPort;
@@ -166,7 +168,6 @@ bool Config::saveConfig()
     json["MQTTConnectedState"] = config.MQTTConnectedState;
 
     // Set the values in the document
-
     File configFile = SPIFFS.open("/config.json", "w");
     if (!configFile)
     {
