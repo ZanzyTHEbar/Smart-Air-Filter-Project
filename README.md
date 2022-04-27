@@ -1,3 +1,5 @@
+[![GitHub issues](https://img.shields.io/github/issues/ZanzyTHEbar/ESP32GreenhouseTowerDIY?style=plastic)](https://github.com/ZanzyTHEbar/Smart-Air-Filter-Project/issues) [![GitHub forks](https://img.shields.io/github/forks/ZanzyTHEbar/Smart-Air-Filter-Project?style=plastic)](https://github.com/ZanzyTHEbar/Smart-Air-Filter-Project/network) [![GitHub stars](https://img.shields.io/github/stars/ZanzyTHEbar/Smart-Air-Filter-Project?style=plastic)](https://github.com/ZanzyTHEbar/Smart-Air-Filter-Project/stargazers) [![GitHub license](https://img.shields.io/github/license/ZanzyTHEbar/Smart-Air-Filter-Project?style=plastic)](https://github.com/ZanzyTHEbar/Smart-Air-Filter-Project/blob/main/LICENSE)
+
 # :man_technologist:
 
 ## Smart Air Filter Project Controller
