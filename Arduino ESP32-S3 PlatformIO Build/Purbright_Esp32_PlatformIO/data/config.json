@@ -20,5 +20,11 @@
   "WIFISSID": "",
   "WIFIPASS": "",
   "MQTTConnectedState": false,
-  "crc": 0
+  "Relays_State": [
+    false,
+    false,
+    false,
+    false,
+    false
+  ]
 }

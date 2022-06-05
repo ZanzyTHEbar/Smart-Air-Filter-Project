@@ -1,45 +1,8 @@
-/*
- defines.cpp - Purbright library
- Copyright (c) 2021 Zacariah Austin Heim.
-*/
-#include "defines.hpp"
+#include <defines.hpp>
 
-WiFiClient espClient;
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, NeoPixelPIN, NEO_GRB + NEO_KHZ800);
-StaticJsonDocument<1000> Doc;
 
-const char *itchy = "itchy:d=8,o=6,b=160:c,a5,4p";
-
-/*######################## MQTT Configuration ########################*/
-#ifdef ENABLE_MQTT_SUPPORT
-
-// MQTT includes
-#include <PubSubClient.h>
-PubSubClient mqttClient(espClient);
-
-// Variables for MQTT
-char *MQTT_TOPIC = "pur/data";
-
-bool mqttProcessing = false;
-
-#endif
-
-// Global Functions
-
-//Code allocates memory - remember to free it using resizeBuff(0, &thing_allocated)
-
-char* MQTTCreateHostName(const char* hostname, const char* def_host)
-{
-  // create hostname
-  int numBytes = strlen(hostname ) + strlen(def_host) + 1;
-  char* hostname_str = NULL;
-  char* def_host_str = NULL;
-  resizeBuff(numBytes, &hostname_str);
-  strcpy(hostname_str, hostname);
-  strcat(hostname_str, def_host_str);
-  return hostname_str;
-}
-
+// Globally available functions
 char *StringtoChar(String inputString)
 {
   char *outputString;
@@ -47,6 +10,39 @@ char *StringtoChar(String inputString)
   resizeBuff(inputString.length() + 1, &outputString);
   strcpy(outputString, inputString.c_str());
   return outputString;
+}
+
+char *appendChartoChar(const char *first, const char *second)
+{
+  int numBytes = strlen(first) + strlen(second) + 1; // +1 for the null terminator | allocate a buffer of the required size
+  char *first_str = NULL;
+  resizeBuff(numBytes, &first_str);
+  strcpy(first_str, first);
+  strcat(first_str, second); // append second to first
+  return first_str;
+}
+
+void my_delay(volatile long delay_time)
+{
+  delay_time = delay_time * 1e6L;
+  for (volatile long count = delay_time; count > 0L; count--)
+    ;
+}
+
+// a function to generate the device ID and called generateDeviceID()
+String generateDeviceID()
+{
+  uint32_t chipId = 0;
+  for (int i = 0; i < 17; i = i + 8)
+  {
+    chipId |= ((ESP.getEfuseMac() >> (40 - i)) & 0xff) << i;
+  }
+
+  log_i("ESP32 Chip model = %s Rev %d\n", ESP.getChipModel(), ESP.getChipRevision());
+  log_i("This chip has %d cores\n", ESP.getChipCores());
+  log_i("Chip ID: %d", chipId);
+  String deviceID = String(chipId);
+  return deviceID;
 }
 
 // Variables
@@ -60,29 +56,12 @@ bool TouchManAutOld = false;
 bool TouchManAutPN = false;
 const int TouchPlus = 33;
 bool TouchPlusOld = false;
-bool TouchPlusPN = false;                                                                                                    
+bool TouchPlusPN = false;
 const int TouchMinus = 27;
 bool TouchMinusOld = false;
 bool TouchMinusPN = false;
 
-// Wifi Variables
-//  Set these to your desired credentials.
-
-char* ssid = "";
-char* password = "";
-char* ip = "";
-char* MQTT_UNIQUE_IDENTIFIER = StringtoChar(WiFi.macAddress());
-char* Mqtt_Device_Name = MQTTCreateHostName(MQTT_UNIQUE_IDENTIFIER, DEFAULT_HOSTNAME);   // MQTT Topic to Publish to for state and config (Any MQTT Broker)
-bool wifiMangerPortalRunning = false;
-bool wifiConnected = false;
-
-const char* mqtt_mDNS_clientId = Mqtt_Device_Name;
-
-int mqttPort;
-
-int period = 500;
 unsigned long time_now = 0;
-bool Charge_State;
 
 // Device States
 bool S_OnOff = false;
@@ -105,4 +84,3 @@ bool DelayRunningSettings = false;
 
 // Settings
 int PumpSetting = 2;
-

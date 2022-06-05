@@ -1,102 +1,132 @@
 /*
- defines.h - Purbright library
- Copyright (c) 2021 Zacariah Austin Heim.
+ defines.hpp - ESP32GreenHouseDIY library
+ Copyright (c) 2021 ZanzyTHEbar
  */
-#pragma once
 #ifndef DEFINES_hpp
 #define DEFINES_hpp
+#if !(defined(ESP32))
+#error This code is intended to run on the ESP32 platform! Please check your Board setting.
+#endif
 
-#define ESP32_RTOS
-#define VERSION "0.0.1"
-#define VERSION_DATE "2021-12-17"
+// IO
+#define LED_BUILTIN 2
 
-// Arduino
 #include <Arduino.h>
-#include "debug.hpp"
-#include "timedtasks.hpp"
-
-// FreeRTOS and File System
-
-#include "config.hpp" /* software data Struct */
-#include "accumulatedata.hpp"
-#include <SPIFFS.h>
-#include <stdio.h>  /* prextern intf, NULL */
+#include <stdio.h>  /* printf, NULL */
 #include <stdlib.h> /* strtoul */
 #include <ArduinoJson.h>
-#include "purrmqtt.hpp"
+#include <strTools.h>
+#include <Adafruit_NeoPixel.h>
+
+// File System
+#include <SPIFFS.h>
+
+// data Struct
+#include "data/config.hpp"
 
 // IO
 #include <Wire.h>
-#include "PIR.hpp"
-#include "i2cscan.hpp"
-#include "resizeBuff.h"
+#include <io/Neopixel/neopixel.hpp>
+#include <io/speaker/speaker.hpp>
 
-// wifi definition
-#include <WiFiClient.h>
+#include <sensors/pir/pir.hpp>
 
-#include "network.hpp"
+#if ENABLE_I2C_SCANNER
+#include "io/i2cScanner/i2cscan.hpp"
+#endif // ENABLE_I2C_SCANNER
 
-// Software Stack
-#include <Adafruit_NeoPixel.h>
-#include <arduino-timer.h>
-//#include <speaker.h>
-#include "neopixel.hpp"
-#include "pump.hpp"
-#include "buttons.hpp"
+// Network definitions
+#include "network/network.hpp"
+#include "network/ntp.hpp"
+
+/*######################## MQTT Configuration ########################*/
+// MQTT includes
+/* #if ENABLE_MDNS_SUPPORT
+#include "mqtt/mDNS_Discovery/mDNS.hpp"
+#endif // ENABLE_MDNS_SUPPORT
+#if ENABLE_HASS
+#include "mqtt/HASSIO/hassmqtt.hpp"
+#else
+#include "mqtt/BASIC/basicmqtt.hpp"
+#endif // ENABLE_HASS */
+/*###################### MQTT Configuration END ######################*/
+
+// Relays and other IO
+#include "io/Relays/Relays.hpp"
+#include "io/Pump/pump.hpp"
+#include <io/Buttons/buttons.hpp>
+
+// Accumulate Data
+#include "data/accumulatedata.hpp"
+
+// Timed tasks
+#include "data/timedtasks.hpp"
+
+/**
+ * @brief The below Macros print data to the terminal during compilation.
+ * !TODO("");
+ * !TODO(Variable);
+ * !Message("");
+ * !Reminder("");
+ * !Feature("");
+ */
+#define Stringize(L) #L
+#define MakeString(M, L) M(L)
+#define $Line MakeString(Stringize, __LINE__)
+
+#define Reminder __FILE__ "(" $Line ") : Reminder:: "
+#define Feature __FILE__ "(" $Line ") : Feature:: "
+
+#define _STR(x) #x
+#define STR(x) _STR(x)
+#define TODO(x) _Pragma(STR(message("TODO: " STR(x) "::" __FILE__ "@" \
+                                                    "(" $Line ")")))
+#define Message(desc) _Pragma(STR(message(__FILE__ "(" $Line "):" #desc)))
+
+/**
+ * To be used for the Serial Monitor in Release Mode.
+ *
+ * @brief ANSI color codes
+ * Windows users can use these to color the terminal output.
+ * @note This is not supported on Linux.
+ *
+ * Green : \e[32m -or- \e[1;32m
+ * Red : \e[31m -or- \e[1;31m
+ * Yellow : \e[33m -or- \e[1;33m
+ * Blue : \e[34m -or- \e[1;34m
+ * Magenta : \e[35m -or- \e[1;35m
+ * Cyan : \e[36m -or- \e[1;36m
+ * Reset : \e[0m -or- \e[m
+ * End : \e[37m -or- \e[1;37m
+ *
+ * Linux users can use these to color the terminal output.
+ * @note This is not supported on Windows.
+ *
+ * Green : \033[32m -or- \033[1;32m
+ * Red : \033[31m -or- \033[1;31m
+ * Yellow : \033[33m -or- \033[1;33m
+ * Blue : \033[34m -or- \033[1;34m
+ * Magenta : \033[35m -or- \033[1;35m
+ * Cyan : \033[36m -or- \033[1;36m
+ * Reset : \033[0m -or- \033[m
+ * End : \033[37m -or- \033[1;37m
+ *
+ * @see https://en.wikipedia.org/wiki/ANSI_escape_code
+ */
+
+// Globally available functions
+char *StringtoChar(String inputString);
+char *appendChartoChar(const char *hostname, const char *def_host);
+void my_delay(volatile long delay_time);
+String generateDeviceID();
+
 #define NeoPixelPIN 12
 extern Adafruit_NeoPixel strip;
 
-extern WiFiClient espClient;
-extern StaticJsonDocument<1000> Doc;
-// IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
-#define BAUD_RATE 115200
-#define BUZZER_PIN 10
-extern const char *itchy;
-
-// define EEPROM settings
-// https://www.kriwanek.de/index.php/de/homeautomation/esp8266/364-eeprom-für-parameter-verwenden
-// define debugging MACROS
-#define DEFAULT_HOSTNAME "PURBRIGHT_PURFECT" // default hostname
-#define ENABLE_MULTICAST_DNS                 // allows to access the UI via "http://<HOSTNAME>.local/"
-#define ENABLE_MQTT_SUPPORT                  // allows extern integration in homeassistant/googlehome/mqtt
-/*######################## MQTT Configuration ########################*/
-#ifdef ENABLE_MQTT_SUPPORT
-// these are deafault settings which can be changed in the web extern interface "settings" page
-#define MQTT_ENABLED 1
-#define MQTT_SECURE_ENABLED 0
-#define MQTT_PORT 1883
-#define MQTT_PORT_SECURE 8883
-#define MQTT_MAX_PACKET_SIZE 1024
-#define MQTT_MAX_TRANSFER_SIZE 1024
-#define MQTT_HOSTNAME "PURBRIGHT_PURFECT"
-#define HOMEASSISTANT_MQTT_HOSTNAME "homeassistant.local"
-
-#define MQTT_USER "MyUserName"
-#define MQTT_PASS ""
-#define MQTT_HOMEASSISTANT_TOPIC_SET "/set"                // MQTT Topic to subscribe to for changes(Home Assistant)
-#define MQTT_HOMEASSISTANT_TOPIC "homeassistant/HBAT/data" // MQTT Topic to Publish to for state and config (Home Assistant);
-
-// MQTT includes
-#include <PubSubClient.h>
-
-extern PubSubClient mqttClient;
-
-// Variables for MQTT
-extern char *MQTT_TOPIC; // MQTT Topic to Publish to for state and config (Any MQTT Broker)
-extern bool mqttProcessing;
-
-#endif
-
-char *MQTTCreateHostName(const char *hostname, const char *def_host);
-char *StringtoChar(String inputString);
-
-extern char *MQTT_UNIQUE_IDENTIFIER;
-extern char *Mqtt_Device_Name;
-
 // Variables
 extern unsigned long lastMillis;
+
 // IO
-extern char *MQTT_UNIQUE_IDENTIFIER; // A Unique Identifier for the device in Homeassistant (MAC Address used by default)
 extern const int TouchOnOff;
 extern bool TouchOnOffOld;
 extern bool TouchOnOffPN;
@@ -109,21 +139,8 @@ extern bool TouchPlusPN;
 extern const int TouchMinus;
 extern bool TouchMinusOld;
 extern bool TouchMinusPN;
-// Wifi Variables
-//  Set these to your desired credentials.
-extern char *ssid;
-extern char *password;
-extern char *ip;
-extern bool wifiMangerPortalRunning;
-extern bool wifiConnected;
 
-extern const char *mqtt_mDNS_clientId;
-
-extern int mqttPort;
-
-extern int period;
 extern unsigned long time_now;
-extern bool Charge_State;
 
 // Device States
 extern bool S_OnOff;
@@ -147,7 +164,4 @@ extern bool DelayRunningSettings;
 // Settings
 extern int PumpSetting;
 
-// IO
-#define LED_BUILTIN 2
-
-#endif
+#endif // DEFINES_hpp
