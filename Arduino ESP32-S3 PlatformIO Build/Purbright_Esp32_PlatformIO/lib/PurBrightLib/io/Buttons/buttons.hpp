@@ -8,7 +8,6 @@ class Buttons
 public:
     Buttons();
     virtual ~Buttons();
-    void OnOff();
     void All_Off();
     void ButtonLoop();
     void SetupButtons();
@@ -25,6 +24,7 @@ public:
     _Buttons_state _buttons_state_t;
 
     _Buttons_state CheckState(const char *state);
+    _Buttons_state OnOff();
 
 private:
 };

@@ -1,6 +1,5 @@
 #include "buttons.hpp"
 
-
 Buttons::_Buttons_state _buttons_state_t = Buttons::Buttons_OFF;
 
 Buttons::Buttons()
@@ -31,17 +30,16 @@ Buttons::_Buttons_state Buttons::CheckState(const char *state)
         {
             _buttons_state_t = Buttons_OFF;
             log_i("Turning off the buttons");
-            setButtons(false);
         }
-        else if (state == "MANUAL")
+        else if (state == "PLUS")
         {
-            _buttons_state_t = Buttons_MANUAL;
-            S_ManAut = false;
+            _buttons_state_t = Buttons_PLUS;
+            neopixel.Plus();
         }
-        else if (state == "AUTOMATIC")
+        else if (state == "MINUS")
         {
-            _buttons_state_t = Buttons_AUTOMATIC;
-            S_ManAut = true;
+            _buttons_state_t = Buttons_MINUS;
+            neopixel.Minus();
         }
         break;
     case Buttons_PLUS:
@@ -49,23 +47,21 @@ Buttons::_Buttons_state Buttons::CheckState(const char *state)
         {
             _buttons_state_t = Buttons_OFF;
             log_i("Turning off the buttons");
-            setButtons(false);
         }
         else if (state == "ON")
         {
             _buttons_state_t = Buttons_ON;
             log_i("Turning on the buttons");
-            setButtons(true);
         }
-        else if (state == "MANUAL")
+        else if (state == "PLUS")
         {
-            _buttons_state_t = Buttons_MANUAL;
-            S_ManAut = false;
+            _buttons_state_t = Buttons_PLUS;
+            neopixel.Plus();
         }
-        else if (state == "AUTOMATIC")
+        else if (state == "MINUS")
         {
-            _buttons_state_t = Buttons_AUTOMATIC;
-            S_ManAut = true;
+            _buttons_state_t = Buttons_MINUS;
+            neopixel.Minus();
         }
         break;
     }
@@ -78,17 +74,19 @@ void Buttons::ButtonLoop()
     if (!digitalRead(TouchOnOff) && TouchOnOffOld)
     {
         TouchOnOffPN = 1;
+        _buttons_state_t = Buttons_ON;
     }
     else
     {
         TouchOnOffPN = 0;
+        _buttons_state_t = Buttons_OFF;
     }
 
     TouchOnOffOld = digitalRead(TouchOnOff);
 
     if (TouchOnOffPN)
     {
-        OnOff();
+        _buttons_state_t = OnOff();
     }
 
     if (S_OnOff)
@@ -154,7 +152,7 @@ void Buttons::ButtonLoop()
 // All Off
 void Buttons::All_Off()
 {
-    Relay.RelayOnOff(Buttons._Buttons_relay_pin, false);
+    pump.setPump(false);
     S_ManAut = false;
     Step_Manual = 10;
     Step_Automatic = 20;
@@ -164,19 +162,24 @@ void Buttons::All_Off()
 }
 
 // OnOff Button Code
-void Buttons::OnOff()
+Buttons::_Buttons_state Buttons::OnOff()
 {
     if (S_OnOff == 0)
     {
         S_OnOff = 1;
         neopixel.colorWipeAll(strip.Color(0, 0, 127), 50); // Soft Blue
         S_ManAut = true;
+        _buttons_state_t = Buttons_ON;
+        return _buttons_state_t;
     }
     else
     {
         S_OnOff = false;
         All_Off();
+        _buttons_state_t = Buttons_OFF;
+        return _buttons_state_t;
     }
+    return Buttons_OFF;
 }
 
 Buttons buttons;

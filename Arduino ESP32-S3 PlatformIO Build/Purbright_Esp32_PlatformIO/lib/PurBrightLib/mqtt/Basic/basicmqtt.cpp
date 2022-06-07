@@ -119,13 +119,13 @@ void callback(char *topic, byte *payload, unsigned int length)
         switch (buttons.CheckState(result.c_str()))
         {
         case 0:
-            log_d("Pump is in an undefined state.");
+            log_d("Litter Box has been turned off.");
             break;
         case 1:
-            log_d("Pump is not running.");
+            log_d("Litter Box has been turned on.");
             break;
         case 2:
-            log_d("Pump is running.");
+            log_d("");
             break;
         case 3:
             log_d("Pump is in Manual.");
@@ -137,29 +137,7 @@ void callback(char *topic, byte *payload, unsigned int length)
             break;
         }
     }
-    else if (strcmp(topic, basemqtt._ledTopic) == 0)
-    {
-        switch (neopixel.CheckState(result.c_str()))
-        {
-        case 0:
-            log_d("Pump is in an undefined state.");
-            break;
-        case 1:
-            log_d("Pump is not running.");
-            break;
-        case 2:
-            log_d("Pump is running.");
-            break;
-        case 3:
-            log_d("Pump is in Manual.");
-            break;
-        case 4:
-            log_d("Pump is in Automatic.");
-            break;
-        default:
-            break;
-        }
-    }
+    
     /* else if (strcmp(topic, basemqtt._speakerTopic) == 0)
     {
         switch (neopixel.CheckState(result.c_str()))
