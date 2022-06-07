@@ -255,7 +255,7 @@ String PUMP::timeReport()
     return timeString;
 }
 
-void PUMP::serialReport()
+String PUMP::serialReport()
 {
     String reportValues;
 
@@ -268,6 +268,7 @@ void PUMP::serialReport()
 
     reportValues = "-- Report ----\n" + timeReport() + reportValues;
     Serial.println(reportValues);
+    return reportValues;
 }
 
 /*

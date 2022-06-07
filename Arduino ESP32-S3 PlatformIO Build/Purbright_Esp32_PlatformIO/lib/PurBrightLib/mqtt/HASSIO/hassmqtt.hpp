@@ -16,6 +16,7 @@ public:
   virtual ~HASSMQTT();
 
   void loadMQTTConfig();
+  void begin();
   void mqttLoop();
 
   // Friends
@@ -26,7 +27,13 @@ public:
 private:
   // Private functions
 
-  // Private variables
+  // Private variable
+  char *_pumpTopic;
+  char *_pumpInTopic;
+  char *_menuTopic;
+  char *_speakerTopic;
+  char *_infoTopic;
+
   unsigned long lastReadAt;
   unsigned long lastAvailabilityToggleAt;
   bool lastInputState;

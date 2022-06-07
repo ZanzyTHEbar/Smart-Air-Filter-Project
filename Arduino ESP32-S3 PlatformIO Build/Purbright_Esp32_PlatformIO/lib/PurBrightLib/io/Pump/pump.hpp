@@ -11,7 +11,6 @@ public:
     void serialControl();
     void scheduleFromUser();
     void setPump(bool state);
-    void serialReport();
     void SetupPumpClass();
     void PumpLoopAdvanced();
     void PumpLoop();
@@ -20,6 +19,7 @@ public:
     void Manual();
     void Automatic();
     String timeReport();
+    String serialReport();
 
     enum _pump_state
     {
@@ -28,6 +28,7 @@ public:
         PUMP_ON,
         PUMP_MANUAL,
         PUMP_AUTOMATIC,
+        PUMP_SERIAL_REPORT
     };
 
     _pump_state _pump_state_t;

@@ -32,8 +32,8 @@ private:
     char *_pumpTopic;
     char *_pumpInTopic;
     char *_menuTopic;
-    char *_ledTopic;
     char *_speakerTopic;
+    char *_infoTopic;
     const long _interval;
     unsigned long _previousMillis;
     uint8_t _user_bytes_received;

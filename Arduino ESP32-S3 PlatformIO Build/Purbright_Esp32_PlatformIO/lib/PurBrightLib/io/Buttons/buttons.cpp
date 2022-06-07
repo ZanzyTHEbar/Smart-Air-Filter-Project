@@ -64,6 +64,28 @@ Buttons::_Buttons_state Buttons::CheckState(const char *state)
             neopixel.Minus();
         }
         break;
+    case Buttons_MINUS:
+        if (state == "OFF")
+        {
+            _buttons_state_t = Buttons_OFF;
+            log_i("Turning off the buttons");
+        }
+        else if (state == "ON")
+        {
+            _buttons_state_t = Buttons_ON;
+            log_i("Turning on the buttons");
+        }
+        else if (state == "PLUS")
+        {
+            _buttons_state_t = Buttons_PLUS;
+            neopixel.Plus();
+        }
+        else if (state == "MINUS")
+        {
+            _buttons_state_t = Buttons_MINUS;
+            neopixel.Minus();
+        }
+        break;
     }
     return _buttons_state_t;
 }

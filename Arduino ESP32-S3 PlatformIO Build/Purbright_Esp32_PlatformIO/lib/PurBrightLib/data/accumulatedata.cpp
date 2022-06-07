@@ -42,12 +42,12 @@ String AccumulateData::InitAccumulateDataJson()
 
     // Stack Data to send
     bool PIR_state;
-    if (digitalRead(MotionSensor) ? PIR_state = "true" : PIR_state = "false")
+    if (digitalRead(MotionSensor) ? PIR_state : !PIR_state)
         ;
     Doc["Motion_Sensor_state"] = PIR_state;
     // Doc["MotionSensor_Last_Updated"] = millis(); //TODO: Implement proper time stamping for PIR sensor activation
     bool Pump_state;
-    if (digitalRead(PumpRelay) ? Pump_state = "true" : Pump_state = "false")
+    if (digitalRead(PumpRelay) ? Pump_state : !Pump_state)
         ;
     Doc["Pump_State"] = Pump_state;
     // Doc["PUR_PUMP_FLOWRATE"] = ;

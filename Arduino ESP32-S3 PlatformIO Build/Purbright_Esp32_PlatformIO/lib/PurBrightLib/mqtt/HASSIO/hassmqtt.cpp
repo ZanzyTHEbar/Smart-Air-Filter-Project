@@ -25,19 +25,13 @@ IPAddress broker_ip;
 HADevice device;
 HAMqtt mqtt(espClient, device);
 HASwitch relay("pump_relay", false); // is unique ID.
-HASensor water_temp("water_temp");
-#if USE_DHT_SENSOR
-HASensor tower_humidity("tower_humidity");
-HASensor tower_humidity_temp("tower_humidity_temp");
-#endif // USE_DHT_SENSOR
-HASensor light("light");
+HASensor motion_sensor("motion_sensor");
+HASensor water_level_sensor("motion_sensor");
 
-#if USE_SHT31_SENSOR
-HASensor sht31_humidity("tower_humidity_sht31");
-HASensor sht31_humidity_temp("tower_humidity_temp_sht31");
-HASensor sht31_humidity_2("tower_humidity_sht31");
-HASensor sht31_humidity_temp_2("tower_humidity_temp_sht31");
-#endif // USE_SHT31_SENSOR
+HASwitch menu_OnOff("Power", false);
+HASwitch menu_plus("plus", false);
+HASwitch menu_minus("minus", false);
+HASwitch menu_man_aut("man-aut", false);
 
 /***********************************************************************************************************************
  * Class Global Variables
@@ -51,8 +45,23 @@ void onMqttConnectionFailed();
 void onPHStateChanged(bool state, HASwitch *s);
 String getBroker();
 
-HASSMQTT::HASSMQTT() : lastReadAt(millis()), lastAvailabilityToggleAt(millis()), lastInputState(digitalRead(pump._pump_relay_pin)), lastSentAt(millis())
+HASSMQTT::HASSMQTT() : lastReadAt(millis()), lastAvailabilityToggleAt(millis()), lastSentAt(millis())
 {
+}
+
+HASSMQTT::~HASSMQTT()
+{
+    // Destructor
+}
+
+void HASSMQTT::begin()
+{
+    lastInputState = digitalRead(pump._pump_relay_pin);
+    _pumpTopic = PUMP_TOPIC;
+    _pumpInTopic = PUMP_IN_TOPIC;
+    _menuTopic = MENU_TOPIC;
+    _infoTopic = "user/info";
+
     // Unique ID must be set!
     String mac = WiFi.macAddress();
     byte buf[100];
@@ -77,6 +86,26 @@ HASSMQTT::HASSMQTT() : lastReadAt(millis()), lastAvailabilityToggleAt(millis()),
     relay.onStateChanged(onRelayStateChanged);
     relay.setName("Pump Relay"); // optional
 
+    // handle switch state
+    menu_OnOff.onBeforeStateChanged(onBeforeStateChanged); // optional
+    menu_OnOff.onStateChanged(onPowerStateChanged);
+    menu_OnOff.setName(menu_OnOff.getState() ? "On" : "Off"); // optional
+
+    // handle switch state
+    menu_minus.onBeforeStateChanged(onBeforeStateChanged); // optional
+    menu_minus.onStateChanged(onMinusStateChanged);
+    menu_minus.setName("Minus"); // optional
+
+    // handle switch state
+    menu_plus.onBeforeStateChanged(onBeforeStateChanged); // optional
+    menu_plus.onStateChanged(onPlusStateChanged);
+    menu_plus.setName("Plus"); // optional
+
+    // handle switch state
+    menu_man_aut.onBeforeStateChanged(onBeforeStateChanged); // optional
+    menu_man_aut.onStateChanged(onManAutStateChanged);
+    menu_man_aut.setName("Man Aut"); // optional
+
     // This method enables availability for all device types registered on the device.
     // For example, if you have 5 sensors on the same device, you can enable
     // shared availability and change availability state of all sensors using
@@ -89,49 +118,16 @@ HASSMQTT::HASSMQTT() : lastReadAt(millis()), lastAvailabilityToggleAt(millis()),
     device.enableLastWill();
 
     // configure sensors
-#if USE_DHT_SENSOR
-    tower_humidity_temp.setUnitOfMeasurement("°C");
-    tower_humidity_temp.setDeviceClass("temperature");
-    tower_humidity_temp.setIcon("mdi:thermometer-lines");
-    tower_humidity_temp.setName("Tower temperature");
+    motion_sensor.setUnitOfMeasurement("Motion");
+    motion_sensor.setDeviceClass("motion");
+    motion_sensor.setIcon("mdi:run");
+    motion_sensor.setName("Purbright Motion Sensor");
 
-    tower_humidity.setUnitOfMeasurement("%");
-    tower_humidity.setDeviceClass("humidity");
-    tower_humidity.setIcon("mdi:water-percent");
-    tower_humidity.setName("Tower Humidity");
-#endif // USE_DHT_SENSOR
+    water_level_sensor.setUnitOfMeasurement("L");
+    water_level_sensor.setDeviceClass("sensor");
+    water_level_sensor.setIcon("mdi:water-percent");
+    water_level_sensor.setName("Water Level");
 
-    water_temp.setUnitOfMeasurement("°C");
-    water_temp.setDeviceClass("temperature");
-    water_temp.setIcon("mdi:coolant-temperature");
-    water_temp.setName("Tower water temperature");
-
-#if USE_SHT31_SENSOR
-    sht31_humidity.setUnitOfMeasurement("%");
-    sht31_humidity.setDeviceClass("humidity");
-    sht31_humidity.setIcon("mdi:water-percent");
-    sht31_humidity.setName("Tower Humidity");
-
-    sht31_humidity_temp.setUnitOfMeasurement("°C");
-    sht31_humidity_temp.setDeviceClass("temperature");
-    sht31_humidity_temp.setIcon("mdi:thermometer-lines");
-    sht31_humidity_temp.setName("Tower Temperature");
-
-    sht31_humidity_2.setUnitOfMeasurement("%");
-    sht31_humidity_2.setDeviceClass("humidity");
-    sht31_humidity_2.setIcon("mdi:water-percent");
-    sht31_humidity_2.setName("Tower Humidity Sensor 2");
-
-    sht31_humidity_temp_2.setUnitOfMeasurement("°C");
-    sht31_humidity_temp_2.setDeviceClass("humidity");
-    sht31_humidity_temp_2.setIcon("mdi:thermometer-lines");
-    sht31_humidity_temp_2.setName("Tower Temperature Sensor 2");
-#endif // USE_SHT31_SENSOR
-
-    light.setUnitOfMeasurement("lx");
-    light.setDeviceClass("illuminance");
-    light.setIcon("mdi:lightbulb");
-    light.setName("Light");
     mqtt.onMessage(onMqttMessage);
     mqtt.onConnected(onMqttConnected);
     mqtt.onConnectionFailed(onMqttConnectionFailed);
@@ -143,11 +139,6 @@ HASSMQTT::HASSMQTT() : lastReadAt(millis()), lastAvailabilityToggleAt(millis()),
 #else
     mqtt.begin(broker_ip.fromString(getBroker()));
 #endif // MQTT_SECURE
-}
-
-HASSMQTT::~HASSMQTT()
-{
-    // Destructor
 }
 
 String getBroker()
@@ -190,40 +181,79 @@ void onMqttMessage(const char *topic, const uint8_t *payload, uint16_t length)
     }
     log_i("Message: [%s]", result.c_str());
 
-    // Check if the message is for the current device
-    if (strcmp(topic, pump._pumpTopic) == 0)
-    {
-        if (strcmp(result.c_str(), "ON") == 0)
-        {
-            log_i("Turning on the pump");
-            Relay.RelayOnOff(pump._pump_relay_pin, true);
-        }
-        else if (strcmp(result.c_str(), "OFF") == 0)
-        {
-            log_i("Turning off the pump");
-            Relay.RelayOnOff(pump._pump_relay_pin, false);
-        }
-    }
-#if ENABLE_PH_SUPPORT
-    else if (strcmp(topic, phsensor._pHTopic) == 0)
-    {
-        log_i("Setting pH level to: [%s]", result.c_str());
-        phsensor.eventListener(topic, payload, length);
-    }
-#endif // ENABLE_PH_SUPPORT
+    const char *_message = "";
 
-    mqtt.publish("greenhouse_tower_info", "Hello from the Greenhouse Tower!");
+    // Check if the message is for the current topic
+    if (strcmp(topic, hassmqtt._pumpTopic) == 0)
+    {
+
+        switch (pump.CheckState(result.c_str()))
+        {
+        case 0:
+            log_d("Pump is in an undefined state.");
+            _message = "[ERROR:] - UNKNOWN";
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            _message = "[INFO:] - PUMP IS NOT RUNNING";
+            break;
+        case 2:
+            log_d("Pump is running.");
+            _message = "[INFO:] - PUMP IS RUNNING";
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            _message = "[INFO:] - PUMP IS IN MANUAL";
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            _message = "[INFO:] - PUMP IS IN AUTOMATIC";
+            break;
+        case 5:
+            log_d("Generating Serial Report: , ", pump.serialReport());
+            _message = "[INFO:] - PUMP IS IN AUTOMATIC";
+            break;
+        default:
+            break;
+        }
+        mqtt.publish(hassmqtt._infoTopic, _message);
+    }
+    else if (strcmp(topic, hassmqtt._menuTopic) == 0)
+    {
+        switch (buttons.CheckState(result.c_str()))
+        {
+        case 1:
+            log_d("Litter Box has been turned off.");
+            _message = "OFF";
+            break;
+        case 2:
+            log_d("Litter Box has been turned on.");
+            _message = "ON";
+            break;
+        case 3:
+            log_d("Plus button has been pressed");
+            _message = "PlUS";
+            break;
+        case 4:
+            log_d("Minus button has been pressed");
+            _message = "MINUS";
+            break;
+        default:
+            break;
+        }
+    }
+    mqtt.publish(hassmqtt._infoTopic, _message);
+    mqtt.publish("greenhouse_tower_greeting", "Hello from the Greenhouse Tower!");
 }
 
 void onMqttConnected()
 {
     // You can subscribe to custom topic if you need
     log_i("Connected to the broker!");
-    log_i("Subscribing to the topic: %s", pump._pumpTopic);
-    mqtt.subscribe(pump._pumpTopic);
-
-    log_i("Subscribing to the topic: %s", phsensor._pHTopic);
-    mqtt.subscribe(phsensor._pHTopic);
+    log_i("Subscribing to the topic: %s", hassmqtt._pumpTopic);
+    log_i("Subscribing to the topic: %s", hassmqtt._menuTopic);
+    mqtt.subscribe(hassmqtt._pumpTopic);
+    mqtt.subscribe(hassmqtt._menuTopic);
 }
 
 void onMqttConnectionFailed()
@@ -240,21 +270,29 @@ void onBeforeStateChanged(bool state, HASwitch *s)
 void onRelayStateChanged(bool state, HASwitch *s)
 {
     // Relay Control
-    bool relay = state;
-    for (int i = 0; i < sizeof(cfg.config.relays_pin) / sizeof(cfg.config.relays_pin[0]); i++)
-    {
-        log_i("switching state of pin: %s\n", relay ? "HIGH" : "LOW");
-        cfg.config.relays[i] = (cfg.config.relays[i]) ? false : true;
-    }
+    pump.setPump(state);
+    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
 }
 
-#if ENABLE_PH_SUPPORT
-void onPHStateChanged(bool state, HASwitch *s)
+void onPowerStateChanged(bool state, HASwitch *s)
 {
-    // PH Control
-    bool ph = state;
+    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
 }
-#endif // ENABLE_PH_SUPPORT
+
+void onPlusStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
+}
+
+void onMinusStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
+}
+
+void onManAutStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
+}
 
 /**
  * @brief Check if the current hostname is the same as the one in the config file
@@ -314,16 +352,8 @@ void HASSMQTT::mqttLoop()
     if ((millis() - lastSentAt) >= 5000)
     {
         lastSentAt = millis();
-        tower_humidity_temp.setValue(accumulatedata.config.humidity_temp);
-        tower_humidity.setValue(accumulatedata.config.humidity);
-        water_temp.setValue(accumulatedata.config.temp_sensors[0]);
-        light.setValue(ldr.getLux());
-#if USE_SHT31_SENSOR
-        sht31_humidity.setValue(lastValue);
-        sht31_humidity_temp.setValue(lastValue);
-        sht31_humidity_2.setValue(lastValue);
-        sht31_humidity_temp_2.setValue(lastValue);
-#endif // USE_SHT31_SENSOR
+        water_level_sensor.setValue(accumulatedata.config.water_level);
+        motion_sensor.setValue(accumulatedata.config.motion_sensor);
 
         // Supported data types:
         // uint32_t (uint16_t, uint8_t)

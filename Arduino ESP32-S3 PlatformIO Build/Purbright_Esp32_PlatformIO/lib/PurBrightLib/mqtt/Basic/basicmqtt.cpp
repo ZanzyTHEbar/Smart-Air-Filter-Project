@@ -3,6 +3,7 @@
 IPAddress broker_ip;
 
 void callback(char *topic, byte *payload, unsigned int length);
+
 String getBroker();
 
 #if MQTT_SECURE
@@ -49,10 +50,20 @@ bool BASEMQTT::Setup()
     _pumpTopic = PUMP_TOPIC;
     _pumpInTopic = PUMP_IN_TOPIC;
     _menuTopic = MENU_TOPIC;
-    _ledTopic = LED_TOPIC;
+    _infoTopic = "user/info";
     /* _speakerTopic = SPEAKER_TOPIC;
     _waterlevelTopic = WATER_LEVEL_TOPIC; */
     return mqttClient.state();
+}
+
+void BASEMQTT::Publish(const char *topic, const char *payload)
+{
+    if (!mqttClient.publish(topic, payload, true))
+    {
+        _publishState = false;
+        return;
+    }
+    _publishState = true;
 }
 
 String getBroker()
@@ -90,100 +101,68 @@ void callback(char *topic, byte *payload, unsigned int length)
     }
     log_i("Message: [%s]", result.c_str());
 
+    const char *_message = "";
+
     // Check if the message is for the current topic
     if (strcmp(topic, basemqtt._pumpTopic) == 0)
     {
+
         switch (pump.CheckState(result.c_str()))
         {
         case 0:
             log_d("Pump is in an undefined state.");
+            _message = "[ERROR:] - UNKNOWN";
             break;
         case 1:
             log_d("Pump is not running.");
+            _message = "[INFO:] - PUMP IS NOT RUNNING";
             break;
         case 2:
             log_d("Pump is running.");
+            _message = "[INFO:] - PUMP IS RUNNING";
             break;
         case 3:
             log_d("Pump is in Manual.");
+            _message = "[INFO:] - PUMP IS IN MANUAL";
             break;
         case 4:
             log_d("Pump is in Automatic.");
+            _message = "[INFO:] - PUMP IS IN AUTOMATIC";
+            break;
+        case 5:
+            log_d("Generating Serial Report: , ", pump.serialReport());
+            _message = "[INFO:] - PUMP IS IN AUTOMATIC";
             break;
         default:
             break;
         }
+        basemqtt.Publish(basemqtt._infoTopic, _message);
     }
     else if (strcmp(topic, basemqtt._menuTopic) == 0)
     {
         switch (buttons.CheckState(result.c_str()))
         {
-        case 0:
+        case 1:
             log_d("Litter Box has been turned off.");
+            _message = "OFF";
             break;
-        case 1:
+        case 2:
             log_d("Litter Box has been turned on.");
-            break;
-        case 2:
-            log_d("");
+            _message = "ON";
             break;
         case 3:
-            log_d("Pump is in Manual.");
+            log_d("Plus button has been pressed");
+            _message = "PlUS";
             break;
         case 4:
-            log_d("Pump is in Automatic.");
+            log_d("Minus button has been pressed");
+            _message = "MINUS";
             break;
         default:
             break;
         }
     }
-    
-    /* else if (strcmp(topic, basemqtt._speakerTopic) == 0)
-    {
-        switch (neopixel.CheckState(result.c_str()))
-        {
-        case 0:
-            log_d("Pump is in an undefined state.");
-            break;
-        case 1:
-            log_d("Pump is not running.");
-            break;
-        case 2:
-            log_d("Pump is running.");
-            break;
-        case 3:
-            log_d("Pump is in Manual.");
-            break;
-        case 4:
-            log_d("Pump is in Automatic.");
-            break;
-        default:
-            break;
-        }
-    }
-    else if (strcmp(topic, basemqtt._waterlevelTopic) == 0)
-    {
-        switch (neopixel.CheckState(result.c_str()))
-        {
-        case 0:
-            log_d("Pump is in an undefined state.");
-            break;
-        case 1:
-            log_d("Pump is not running.");
-            break;
-        case 2:
-            log_d("Pump is running.");
-            break;
-        case 3:
-            log_d("Pump is in Manual.");
-            break;
-        case 4:
-            log_d("Pump is in Automatic.");
-            break;
-        default:
-            break;
-        }
-    } */
+    basemqtt.Publish(basemqtt._infoTopic, _message);
 }
 
 void BASEMQTT::loadMQTTConfig()
@@ -241,16 +220,6 @@ void BASEMQTT::mqttReconnect()
     }
 }
 
-void BASEMQTT::Publish(const char *topic, const char *payload)
-{
-    if (!mqttClient.publish(topic, payload, true))
-    {
-        _publishState = false;
-        return;
-    }
-    _publishState = true;
-}
-
 void BASEMQTT::mqttLoop()
 {
     my_delay(1L);
@@ -276,11 +245,11 @@ void BASEMQTT::mqttLoop()
 
             if (_user_bytes_received)
             {
-                pump.serialReport();
                 _user_bytes_received = 0;
                 memset(_user_data, 0, sizeof(_user_data));
 
                 Publish(_pumpInTopic, accumulatedata.InitAccumulateDataJson().c_str());
+                Publish(_infoTopic, accumulatedata.InitAccumulateDataJson().c_str());
             }
         }
     }
