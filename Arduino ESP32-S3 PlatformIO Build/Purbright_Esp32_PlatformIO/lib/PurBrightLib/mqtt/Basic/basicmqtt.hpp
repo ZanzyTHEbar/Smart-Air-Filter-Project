@@ -42,4 +42,4 @@ private:
 };
 
 extern BASEMQTT basemqtt;
-#endif // HAMQTT_HPP
+#endif // BASEMQTT_HPP

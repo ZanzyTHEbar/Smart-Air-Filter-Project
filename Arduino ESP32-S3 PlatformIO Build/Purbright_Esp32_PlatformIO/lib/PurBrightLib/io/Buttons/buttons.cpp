@@ -68,7 +68,7 @@ Buttons::_Buttons_state Buttons::CheckState(const char *state)
     return _buttons_state_t;
 }
 
-void Buttons::ButtonLoop()
+void Buttons::ReadPowerButton()
 {
     // Button Check
     if (!digitalRead(TouchOnOff) && TouchOnOffOld)
@@ -88,41 +88,65 @@ void Buttons::ButtonLoop()
     {
         _buttons_state_t = OnOff();
     }
+}
+
+void Buttons::ReadPlusButton()
+{
+    // Button Check
+    if (!digitalRead(TouchPlus) && TouchPlusOld)
+    {
+        TouchPlusPN = 1;
+    }
+    else
+    {
+        TouchPlusPN = 0;
+    }
+
+    TouchPlusOld = digitalRead(TouchPlus);
+}
+
+void Buttons::ReadMinusButton()
+{
+    // Button Check
+    if (!digitalRead(TouchMinus) && TouchMinusOld)
+    {
+        TouchMinusPN = 1;
+    }
+    else
+    {
+        TouchMinusPN = 0;
+    }
+
+    TouchMinusOld = digitalRead(TouchMinus);
+}
+
+void Buttons::ReadManAutButton()
+{
+    // Button Check
+    if (!digitalRead(TouchManAut) && TouchManAutOld)
+    {
+        TouchManAutPN = 1;
+    }
+    else
+    {
+        TouchManAutPN = 0;
+    }
+
+    TouchManAutOld = digitalRead(TouchManAut);
+}
+
+void Buttons::ButtonLoop()
+{
+    // Button Check
+    ReadPowerButton();
 
     if (S_OnOff)
     {
-        if (!digitalRead(TouchManAut) && TouchManAutOld)
-        {
-            TouchManAutPN = 1;
-        }
-        else
-        {
-            TouchManAutPN = 0;
-        }
+        ReadManAutButton();
 
-        TouchManAutOld = digitalRead(TouchManAut);
+        ReadPlusButton();
 
-        if (!digitalRead(TouchPlus) && TouchPlusOld)
-        {
-            TouchPlusPN = 1;
-        }
-        else
-        {
-            TouchPlusPN = 0;
-        }
-
-        TouchPlusOld = digitalRead(TouchPlus);
-
-        if (!digitalRead(TouchMinus) && TouchMinusOld)
-        {
-            TouchMinusPN = 1;
-        }
-        else
-        {
-            TouchMinusPN = 0;
-        }
-
-        TouchMinusOld = digitalRead(TouchMinus);
+        ReadMinusButton();
 
         /*  ------------------------------------------------- */
 
@@ -130,18 +154,22 @@ void Buttons::ButtonLoop()
         {
             pump.Man_Aut();
         }
+
         if (!S_Menu && TouchPlusPN)
         {
             neopixel.Settings();
         }
+
         if (S_Menu && TouchPlusPN)
         {
             neopixel.Plus();
         }
+
         if (S_Menu && TouchMinusPN)
         {
             neopixel.Settings();
         }
+        
         if (S_Menu && TouchMinusPN)
         {
             neopixel.Minus();

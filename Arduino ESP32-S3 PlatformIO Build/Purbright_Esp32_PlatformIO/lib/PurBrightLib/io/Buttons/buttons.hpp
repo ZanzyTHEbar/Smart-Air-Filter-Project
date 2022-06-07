@@ -27,6 +27,11 @@ public:
     _Buttons_state OnOff();
 
 private:
+    // functions
+    void ReadPowerButton();
+    void ReadPlusButton();
+    void ReadMinusButton();
+    void ReadManAutButton();
 };
 extern Buttons buttons;
 #endif
