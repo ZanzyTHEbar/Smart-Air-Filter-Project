@@ -16,31 +16,43 @@ PubSubClient mqttClient(broker_ip.fromString(getBroker()), MQTT_PORT, callback, 
 // * Please only make changes to the following class variables within the ini file. Do not change them here.
 //************************************************************************************************************************
 
-BASEMQTT::BASEMQTT() : _interval(60000), _user_data{0}, _previousMillis(0), _user_bytes_received(0)
+BASEMQTT::BASEMQTT() : _interval(60000), _user_data{0}, _previousMillis(0), _user_bytes_received(0), _publishState(false)
+{
+}
+
+BASEMQTT::~BASEMQTT()
+{
+    // Destructor
+}
+
+bool BASEMQTT::Setup()
 {
     log_i("Setting up MQTT...");
 
     // Local Mosquitto Connection -- Start
     if (mqttClient.connect(DEFAULT_HOSTNAME))
     {
-#if ENABLE_PH_SUPPORT
         // connection succeeded
-        log_i("Connection succeeded. Subscribing to the topic [%s]", phsensor._pHTopic);
-        mqttClient.subscribe(phsensor._pHTopic);
-#endif // ENABLE_PH_SUPPORT
+        log_i("Connection succeeded. Subscribing to the topic [%s]", _pumpTopic);
+        mqttClient.subscribe(_pumpTopic);
         log_i("Successfully subscribed to the topic.");
+        return true;
     }
     else
     {
         // connection failed
         log_i("Connection failed. MQTT client state is: %d", mqttClient.state());
+        return false;
     }
     // Local Mosquitto Connection -- End
-}
-
-BASEMQTT::~BASEMQTT()
-{
-    // Destructor
+    cfg.config.MQTTConnectedState = mqttClient.state();
+    _pumpTopic = PUMP_TOPIC;
+    _pumpInTopic = PUMP_IN_TOPIC;
+    _menuTopic = MENU_TOPIC;
+    _ledTopic = LED_TOPIC;
+    /* _speakerTopic = SPEAKER_TOPIC;
+    _waterlevelTopic = WATER_LEVEL_TOPIC; */
+    return mqttClient.state();
 }
 
 String getBroker()
@@ -79,26 +91,121 @@ void callback(char *topic, byte *payload, unsigned int length)
     log_i("Message: [%s]", result.c_str());
 
     // Check if the message is for the current topic
-    if (strcmp(topic, pump._pumpTopic) == 0)
+    if (strcmp(topic, basemqtt._pumpTopic) == 0)
     {
-        if (strcmp(result.c_str(), "ON") == 0)
+        switch (pump.CheckState(result.c_str()))
         {
-            log_i("Turning on the pump");
-            Relay.RelayOnOff(pump._pump_relay_pin, true);
-        }
-        else if (strcmp(result.c_str(), "OFF") == 0)
-        {
-            log_i("Turning off the pump");
-            Relay.RelayOnOff(pump._pump_relay_pin, false);
+        case 0:
+            log_d("Pump is in an undefined state.");
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            break;
+        case 2:
+            log_d("Pump is running.");
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            break;
+        default:
+            break;
         }
     }
-#if ENABLE_PH_SUPPORT
-    else if (strcmp(topic, phsensor._pHTopic) == 0)
+    else if (strcmp(topic, basemqtt._menuTopic) == 0)
     {
-        log_i("Setting pH level to: [%s]", result.c_str());
-        phsensor.eventListener(topic, payload, length);
+        switch (buttons.CheckState(result.c_str()))
+        {
+        case 0:
+            log_d("Pump is in an undefined state.");
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            break;
+        case 2:
+            log_d("Pump is running.");
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            break;
+        default:
+            break;
+        }
     }
-#endif // ENABLE_PH_SUPPORT
+    else if (strcmp(topic, basemqtt._ledTopic) == 0)
+    {
+        switch (neopixel.CheckState(result.c_str()))
+        {
+        case 0:
+            log_d("Pump is in an undefined state.");
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            break;
+        case 2:
+            log_d("Pump is running.");
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            break;
+        default:
+            break;
+        }
+    }
+    /* else if (strcmp(topic, basemqtt._speakerTopic) == 0)
+    {
+        switch (neopixel.CheckState(result.c_str()))
+        {
+        case 0:
+            log_d("Pump is in an undefined state.");
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            break;
+        case 2:
+            log_d("Pump is running.");
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            break;
+        default:
+            break;
+        }
+    }
+    else if (strcmp(topic, basemqtt._waterlevelTopic) == 0)
+    {
+        switch (neopixel.CheckState(result.c_str()))
+        {
+        case 0:
+            log_d("Pump is in an undefined state.");
+            break;
+        case 1:
+            log_d("Pump is not running.");
+            break;
+        case 2:
+            log_d("Pump is running.");
+            break;
+        case 3:
+            log_d("Pump is in Manual.");
+            break;
+        case 4:
+            log_d("Pump is in Automatic.");
+            break;
+        default:
+            break;
+        }
+    } */
 }
 
 void BASEMQTT::loadMQTTConfig()
@@ -144,9 +251,7 @@ void BASEMQTT::mqttReconnect()
         {
             log_i("Connected to MQTT broker.");
             // Subscribe
-#if ENABLE_PH_SUPPORT
-            mqttClient.subscribe(phsensor._pHTopic);
-#endif // ENABLE_PH_SUPPORT
+            mqttClient.subscribe(_pumpTopic);
         }
         else
         {
@@ -156,6 +261,16 @@ void BASEMQTT::mqttReconnect()
             my_delay(15L);
         }
     }
+}
+
+void BASEMQTT::Publish(const char *topic, const char *payload)
+{
+    if (!mqttClient.publish(topic, payload, true))
+    {
+        _publishState = false;
+        return;
+    }
+    _publishState = true;
 }
 
 void BASEMQTT::mqttLoop()
@@ -183,20 +298,12 @@ void BASEMQTT::mqttLoop()
 
             if (_user_bytes_received)
             {
-                phsensor.parse_cmd(_user_data);
+                pump.serialReport();
                 _user_bytes_received = 0;
                 memset(_user_data, 0, sizeof(_user_data));
+
+                Publish(_pumpInTopic, accumulatedata.InitAccumulateDataJson().c_str());
             }
-#if ENABLE_PH_SUPPORT
-            log_i("Sending message to topic: %s", phsensor._pHOutTopic);
-#endif // ENABLE_PH_SUPPORT
-            float newpH = cfg.config.pH;
-            String timeStamp = networkntp.getTimeStamp();
-            log_i("pH: %s", String(newpH).c_str());
-#if ENABLE_PH_SUPPORT
-            mqttClient.publish(phsensor._pHOutTopic, String(newpH).c_str(), true);
-            mqttClient.publish(phsensor._pHOutTopic, timeStamp.c_str(), true);
-#endif // ENABLE_PH_SUPPORT
         }
     }
 }

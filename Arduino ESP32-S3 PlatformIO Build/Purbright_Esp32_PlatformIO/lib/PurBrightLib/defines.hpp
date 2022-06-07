@@ -36,31 +36,31 @@
 #endif // ENABLE_I2C_SCANNER
 
 // Network definitions
-#include "network/network.hpp"
-#include "network/ntp.hpp"
+#include <network/network.hpp>
+#include <network/ntp.hpp>
 
 /*######################## MQTT Configuration ########################*/
 // MQTT includes
-/* #if ENABLE_MDNS_SUPPORT
+#if ENABLE_MDNS_SUPPORT
 #include "mqtt/mDNS_Discovery/mDNS.hpp"
 #endif // ENABLE_MDNS_SUPPORT
 #if ENABLE_HASS
 #include "mqtt/HASSIO/hassmqtt.hpp"
 #else
-#include "mqtt/BASIC/basicmqtt.hpp"
-#endif // ENABLE_HASS */
+#include <mqtt/Basic/basicmqtt.hpp>
+#endif // ENABLE_HASS
 /*###################### MQTT Configuration END ######################*/
 
 // Relays and other IO
-#include "io/Relays/Relays.hpp"
-#include "io/Pump/pump.hpp"
+#include <io/Relays/Relays.hpp>
+#include <io/Pump/pump.hpp>
 #include <io/Buttons/buttons.hpp>
 
 // Accumulate Data
-#include "data/accumulatedata.hpp"
+#include <data/accumulatedata.hpp>
 
 // Timed tasks
-#include "data/timedtasks.hpp"
+#include <data/timedtasks.hpp>
 
 /**
  * @brief The below Macros print data to the terminal during compilation.

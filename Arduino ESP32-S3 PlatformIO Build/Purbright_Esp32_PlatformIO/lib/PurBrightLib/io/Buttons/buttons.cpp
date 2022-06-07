@@ -1,5 +1,8 @@
 #include "buttons.hpp"
 
+
+Buttons::_Buttons_state _buttons_state_t = Buttons::Buttons_OFF;
+
 Buttons::Buttons()
 {
 }
@@ -15,6 +18,58 @@ void Buttons::SetupButtons()
     pinMode(TouchManAut, INPUT);
     pinMode(TouchPlus, INPUT);
     pinMode(TouchMinus, INPUT);
+}
+
+Buttons::_Buttons_state Buttons::CheckState(const char *state)
+{
+    switch (_buttons_state_t)
+    {
+    case Buttons_OFF: // Undefined
+        break;
+    case Buttons_ON:
+        if (state == "OFF")
+        {
+            _buttons_state_t = Buttons_OFF;
+            log_i("Turning off the buttons");
+            setButtons(false);
+        }
+        else if (state == "MANUAL")
+        {
+            _buttons_state_t = Buttons_MANUAL;
+            S_ManAut = false;
+        }
+        else if (state == "AUTOMATIC")
+        {
+            _buttons_state_t = Buttons_AUTOMATIC;
+            S_ManAut = true;
+        }
+        break;
+    case Buttons_PLUS:
+        if (state == "OFF")
+        {
+            _buttons_state_t = Buttons_OFF;
+            log_i("Turning off the buttons");
+            setButtons(false);
+        }
+        else if (state == "ON")
+        {
+            _buttons_state_t = Buttons_ON;
+            log_i("Turning on the buttons");
+            setButtons(true);
+        }
+        else if (state == "MANUAL")
+        {
+            _buttons_state_t = Buttons_MANUAL;
+            S_ManAut = false;
+        }
+        else if (state == "AUTOMATIC")
+        {
+            _buttons_state_t = Buttons_AUTOMATIC;
+            S_ManAut = true;
+        }
+        break;
+    }
+    return _buttons_state_t;
 }
 
 void Buttons::ButtonLoop()
@@ -99,7 +154,7 @@ void Buttons::ButtonLoop()
 // All Off
 void Buttons::All_Off()
 {
-    Relay.RelayOnOff(pump._pump_relay_pin, false);
+    Relay.RelayOnOff(Buttons._Buttons_relay_pin, false);
     S_ManAut = false;
     Step_Manual = 10;
     Step_Automatic = 20;

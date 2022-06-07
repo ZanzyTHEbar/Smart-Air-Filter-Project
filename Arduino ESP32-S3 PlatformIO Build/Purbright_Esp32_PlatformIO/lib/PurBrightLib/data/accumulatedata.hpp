@@ -9,7 +9,7 @@ public:
     virtual ~AccumulateData();
 
     void InitAccumulateData();
-    void InitAccumulateDataJson();
+    String InitAccumulateDataJson();
     bool SendData();
 
 private:

@@ -13,6 +13,9 @@ int pumpScheduleIndex[1][24] = {
     {2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2} // Pump at 12:00
 };
 
+PUMP::PumpData pumpdata;
+PUMP::_pump_state _pump_state_t = PUMP::PUMP_OFF;
+
 PUMP::PUMP() : _runInterval(1),
                _pumpMaxRunTime(0),
                _pumpOn(0),
@@ -33,9 +36,9 @@ void PUMP::SetupPumpClass()
     _tDelay = _runInterval;
     _pump_relay_pin = PUMP_RELAY_PIN;
     _MotionSensorPin = MOTION_SENSOR_PIN;
-    _pumpTopic = PUMP_TOPIC;
+
     // Setup the pump relay pin
-    log_i("Setting up the pump...");
+    log_i("Setting up the ..");
     pinMode(_pump_relay_pin, OUTPUT);
     Relay.RelayOnOff(_pump_relay_pin, false);
 
@@ -128,6 +131,92 @@ void PUMP::PumpLoop()
         strip.setPixelColor(1, strip.Color(0, 0, 0));
         strip.show();
     }
+}
+
+PUMP::_pump_state PUMP::CheckState(const char *state)
+{
+    switch (_pump_state_t)
+    {
+    case UNDEF: // Undefined
+        break;
+    case PUMP_OFF:
+        if (state == "ON")
+        {
+            _pump_state_t = PUMP_ON;
+            log_i("Turning on the pump");
+            setPump(true);
+        }
+        else if (state == "MANUAL")
+        {
+            _pump_state_t = PUMP_MANUAL;
+            S_ManAut = false;
+        }
+        else if (state == "AUTOMATIC")
+        {
+            _pump_state_t = PUMP_AUTOMATIC;
+            S_ManAut = true;
+        }
+        break;
+    case PUMP_ON:
+        if (state == "OFF")
+        {
+            _pump_state_t = PUMP_OFF;
+            log_i("Turning off the pump");
+            setPump(false);
+        }
+        else if (state == "MANUAL")
+        {
+            _pump_state_t = PUMP_MANUAL;
+            S_ManAut = false;
+        }
+        else if (state == "AUTOMATIC")
+        {
+            _pump_state_t = PUMP_AUTOMATIC;
+            S_ManAut = true;
+        }
+        break;
+    case PUMP_MANUAL:
+        if (state == "OFF")
+        {
+            _pump_state_t = PUMP_OFF;
+            log_i("Turning off the pump");
+            setPump(false);
+        }
+        else if (state == "ON")
+        {
+            _pump_state_t = PUMP_ON;
+            log_i("Turning on the pump");
+            setPump(true);
+        }
+        else if (state == "AUTOMATIC")
+        {
+            _pump_state_t = PUMP_AUTOMATIC;
+            S_ManAut = true;
+        }
+        break;
+    case PUMP_AUTOMATIC:
+        if (state == "OFF")
+        {
+            _pump_state_t = PUMP_OFF;
+            log_i("Turning off the pump");
+            setPump(false);
+        }
+        else if (state == "ON")
+        {
+            _pump_state_t = PUMP_ON;
+            log_i("Turning on the pump");
+            setPump(true);
+        }
+        else if (state == "MANUAL")
+        {
+            _pump_state_t = PUMP_MANUAL;
+            S_ManAut = false;
+        }
+        break;
+    default:
+        break;
+    }
+    return _pump_state_t;
 }
 
 void PUMP::scheduleFromUser()
@@ -263,6 +352,20 @@ void PUMP::Man_Aut()
             setPump(false);
         }
     }
+}
+
+PUMP::PumpData PUMP::AggregateData()
+{
+    // Aggregate data
+    pumpdata = {
+        _runInterval,
+        _pumpInterval,
+        _pumpDuration,
+        _oneReport,
+        S_ManAut,
+        S_OnOff,
+    };
+    return pumpdata;
 }
 
 // TODO: Save settings to SPIFFS config file to have persistent settings across reboots

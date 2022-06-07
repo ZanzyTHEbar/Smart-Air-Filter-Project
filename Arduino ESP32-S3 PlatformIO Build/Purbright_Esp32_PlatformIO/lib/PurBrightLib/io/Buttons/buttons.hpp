@@ -13,6 +13,19 @@ public:
     void ButtonLoop();
     void SetupButtons();
 
+    enum _Buttons_state
+    {
+        UNDEF,
+        Buttons_OFF,
+        Buttons_ON,
+        Buttons_PLUS,
+        Buttons_MINUS,
+    };
+
+    _Buttons_state _buttons_state_t;
+
+    _Buttons_state CheckState(const char *state);
+
 private:
 };
 extern Buttons buttons;

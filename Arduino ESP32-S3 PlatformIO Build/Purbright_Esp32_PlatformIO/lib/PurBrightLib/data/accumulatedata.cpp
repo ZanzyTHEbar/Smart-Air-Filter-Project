@@ -31,7 +31,7 @@ bool AccumulateData::SendData()
     TODO("Implement FEATURE");
 }
 
-void AccumulateData::InitAccumulateDataJson()
+String AccumulateData::InitAccumulateDataJson()
 {
     // Send the data to the server - Use ArduinoJson library
     TODO("Implement FEATURE");
@@ -62,16 +62,31 @@ void AccumulateData::InitAccumulateDataJson()
     }
 
     // Speakers
-    JsonArray SpeakersState = Doc.createNestedArray("PUR_SPEAKERS_State");
-    bool speakersstate[2] = {1, 2};
+    /* JsonArray SpeakersState = Doc.createNestedArray("PUR_SPEAKERS_State");
     for (int i = 0; i < 2; i++)
     {
-        SpeakersState.add(speakersstate[i]);
-        bool speakers_state[2] = {1, 2};
+        SpeakersState.add(speaker.speakersstate[i]);
         SpeakersState.add("Relay" + String(i) + "State: ");
-        if (digitalRead(speakers[i]) ? speakers_state[i] = true : speakers_state[i] = false)
+        if (digitalRead(speakers[i]) ? speaker.speakersstate[i] : speaker.speakersstate[i] = false)
             ;
+    } */
+
+    JsonArray PumpData = Doc.createNestedArray("PUR_PUMP_DATA");
+    int *pumpPointer = (int *)&pump.pumpdata;
+    for (int i = 0; i < sizeof(pumpPointer) / sizeof(pumpPointer[0]); i++)
+    {
+        PumpData.add(pumpPointer[i]);
     }
+
+    String jsonString;
+    auto error = serializeJson(Doc, jsonString);
+    if (error){
+        log_e("Failed to serialize MQTT JSON File");
+    }
+    else{
+        log_d("MQTT Json: %s", jsonString.c_str());
+    }
+    return jsonString;
 }
 
 AccumulateData accumulatedata;
