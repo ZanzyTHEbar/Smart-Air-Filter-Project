@@ -272,26 +272,31 @@ void onRelayStateChanged(bool state, HASwitch *s)
     // Relay Control
     pump.setPump(state);
     log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
-}
-
-void onPowerStateChanged(bool state, HASwitch *s)
-{
-    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
-}
-
-void onPlusStateChanged(bool state, HASwitch *s)
-{
-    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
-}
-
-void onMinusStateChanged(bool state, HASwitch *s)
-{
-    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
+    pump._pump_state_t = state ? pump.PUMP_ON : pump.PUMP_OFF;
 }
 
 void onManAutStateChanged(bool state, HASwitch *s)
 {
-    log_i("switching state of pin: %s\n", state ? "HIGH" : "LOW");
+    log_i("switching state of ManAut: %s\n", state ? "HIGH" : "LOW");
+    pump._pump_state_t = state ? pump.PUMP_MANUAL : pump.PUMP_AUTOMATIC;
+}
+
+void onPowerStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of Power: %s\n", state ? "HIGH" : "LOW");
+    buttons._buttons_state_t = state ? buttons.Buttons_ON : buttons.Buttons_OFF;
+}
+
+void onPlusStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of Plus: %s\n", state ? "HIGH" : "LOW");
+    buttons._buttons_state_t = buttons.Buttons_PLUS;
+}
+
+void onMinusStateChanged(bool state, HASwitch *s)
+{
+    log_i("switching state of Minus: %s\n", state ? "HIGH" : "LOW");
+    buttons._buttons_state_t = buttons.Buttons_MINUS;
 }
 
 /**
