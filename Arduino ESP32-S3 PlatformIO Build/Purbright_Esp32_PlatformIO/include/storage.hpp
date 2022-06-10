@@ -37,6 +37,7 @@ namespace AirFilter
         char ssid[64];
         char password[64];
     };
+    
     struct TrackerConfig
     {
         DeviceConfig device{};

@@ -1,27 +1,30 @@
 #include "LEDManager.hpp"
 
-void AirFilter::LEDManager::setupLED() const
+namespace AirFilter
 {
-    pinMode(ledPin, OUTPUT);
-}
+    void LEDManager::setupLED() const
+    {
+        pinMode(ledPin, OUTPUT);
+    }
 
-void AirFilter::LEDManager::on() const
-{
-    digitalWrite(ledPin, LOW);
-}
+    void LEDManager::on() const
+    {
+        digitalWrite(ledPin, LOW);
+    }
 
-void AirFilter::LEDManager::off() const
-{
-    digitalWrite(ledPin, HIGH);
-}
+    void LEDManager::off() const
+    {
+        digitalWrite(ledPin, HIGH);
+    }
 
-void AirFilter::LEDManager::blink(unsigned int time)
-{
-    on();
-    delay(time);
-    off();
-}
+    void LEDManager::blink(unsigned int time)
+    {
+        on();
+        delay(time);
+        off();
+    }
 
-void AirFilter::LEDManager::displayStatus()
-{
+    void LEDManager::displayStatus()
+    {
+    }
 }
