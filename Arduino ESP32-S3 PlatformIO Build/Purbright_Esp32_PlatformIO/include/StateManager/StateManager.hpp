@@ -10,9 +10,20 @@ namespace AirFilter
         ConnectingToWifiError,
         ConnectingToWifiSuccess,
         ServerError,
-        CameraError,
+        PumpError,
         MDNSSuccess,
         MDNSError,
+        MQTTSuccess,
+        MQTTError,
+    };
+
+    enum _Buttons_state
+    {
+        UNDEF,
+        Buttons_OFF,
+        Buttons_ON,
+        Buttons_PLUS,
+        Buttons_MINUS,
     };
 
     class StateManager
