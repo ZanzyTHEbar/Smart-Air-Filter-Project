@@ -8,84 +8,87 @@
 #define CONFIG_HPP
 #include <defines.hpp>
 
-class Config
+namespace AirFilter
 {
-public:
-    Config();
-    virtual ~Config();
-    struct Config_t
+    class Config
     {
+    public:
+        Config();
+        virtual ~Config();
+        struct Config_t
+        {
+            // Variables
+            char *hostname;
+            char *MQTTClientID;
+            int MQTTPort;        // Port to use for unsecured MQTT
+            int MQTTPort_Secure; // port to use if Secured MQTT is enabled
+            char *MQTTUser;
+            char *MQTTPass;
+            char *MQTTTopic;
+            char *MQTTSetTopic;
+            char *MQTTDeviceName;
+            char *MQTTBroker;
+            bool MQTTSecureState;
+            bool MQTTConnectedState;
+            int last_mqtt_connect_attempt;
+            int last_mqtt_publish_attempt;
+            unsigned long lastMillis;
+            char *IP;
+            char *netmask;
+            char *gateway;
+            long lastMsg;
+            char *msg;
+            int value;
+            char *WIFISSID;
+            char *WIFIPASS;
+            char *MDNS;
+            bool data_json;
+            String data_json_string;
+            bool relays[5];
+            int relays_pin[5];
+            bool PIR_state;
+            bool Pump_state;
+            bool speakers[2];
+            bool speakers_state[2];
+        };
+        Config_t config;
+
+        bool loadConfig();
+        // trigger a config write/commit
+        bool setConfigChanged();
+        bool updateCurrentData();
+        // overwrite all config settings with "0"
+        void resetConfig();
+        bool saveConfig();
+        bool isValidHostname(char *hostname_to_check, long size);
+        // parse and set a new hostname to config
+        void setHostname(String new_hostname);
+        // we can't assign wifiManager.resetSettings(); to reset, somehow it gets called straight away.
+        void setWiFiConf(String ssid, String password);
+        void InitDataStruct();
+        void CreateDefaultConfig();
+        bool initSPIFFS();
+        String readFile(fs::FS &fs, const char *path);
+        void writeFile(fs::FS &fs, const char *path, const char *message);
+
+        void printASCII(const char *fileName)
+        {
+            String asciiART = readFile(SPIFFS, fileName);
+            Serial.write(asciiART.c_str());
+        }
+
+    private:
+        Config_t _default_cfg;
+        int _last_config;
+        // save last "timestamp" the config has been saved
+        bool _last_config_change;
         // Variables
-        char *hostname;
-        char *MQTTClientID;
-        int MQTTPort;        // Port to use for unsecured MQTT
-        int MQTTPort_Secure; // port to use if Secured MQTT is enabled
-        char *MQTTUser;
-        char *MQTTPass;
-        char *MQTTTopic;
-        char *MQTTSetTopic;
-        char *MQTTDeviceName;
-        char *MQTTBroker;
-        bool MQTTSecureState;
-        bool MQTTConnectedState;
-        int last_mqtt_connect_attempt;
-        int last_mqtt_publish_attempt;
-        unsigned long lastMillis;
-        char *IP;
-        char *netmask;
-        char *gateway;
-        long lastMsg;
-        char *msg;
-        int value;
-        char *WIFISSID;
-        char *WIFIPASS;
-        char *MDNS;
-        bool data_json;
-        String data_json_string;
-        bool relays[5];
-        int relays_pin[5];
-        bool PIR_state;
-        bool Pump_state;
-        bool speakers[2];
-        bool speakers_state[2];
+        int _maxTemp;
+        String _doc_string;
+        // Temporary function to ensure that the correct number of cells are being read - this will be removed when the cell count is dynamically allocated
     };
-    Config_t config;
 
-    bool loadConfig();
-    // trigger a config write/commit
-    bool setConfigChanged();
-    bool updateCurrentData();
-    // overwrite all config settings with "0"
-    void resetConfig();
-    bool saveConfig();
-    bool isValidHostname(char *hostname_to_check, long size);
-    // parse and set a new hostname to config
-    void setHostname(String new_hostname);
-    // we can't assign wifiManager.resetSettings(); to reset, somehow it gets called straight away.
-    void setWiFiConf(String ssid, String password);
-    void InitDataStruct();
-    void CreateDefaultConfig();
-    bool initSPIFFS();
-    String readFile(fs::FS &fs, const char *path);
-    void writeFile(fs::FS &fs, const char *path, const char *message);
-
-    void printASCII(const char *fileName)
-    {
-        String asciiART = readFile(SPIFFS, fileName);
-        Serial.write(asciiART.c_str());
-    }
-
-private:
-    Config_t _default_cfg;
-    int _last_config;
-    // save last "timestamp" the config has been saved
-    bool _last_config_change;
-    // Variables
-    int _maxTemp;
-    String _doc_string;
-    // Temporary function to ensure that the correct number of cells are being read - this will be removed when the cell count is dynamically allocated
-};
-
-extern Config cfg;
+    extern Config cfg;
+}
 #endif
 // EOF

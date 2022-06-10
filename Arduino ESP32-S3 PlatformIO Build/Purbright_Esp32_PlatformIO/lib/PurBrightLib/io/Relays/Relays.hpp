@@ -2,26 +2,28 @@
 #define RELAYS_HPP
 #include <defines.hpp>
 
-class Relays
+namespace AirFilter
 {
-public:
-    Relays();
-    virtual ~Relays();
-    void RelayOnOff(byte relay, bool on);
-    void SetupPID();
-    void SetupRelays();
+    class Relays
+    {
+    public:
+        Relays();
+        virtual ~Relays();
+        void RelayOnOff(byte relay, bool on);
+        void SetupPID();
+        void SetupRelays();
 #if USE_SHT31_SENSOR
-    void HumRelayOnOff();
+        void HumRelayOnOff();
 #endif // USE_SHT31_SENSOR
 
-private:
-
+    private:
 #if USE_PID
-    double _Setpoint, _Input, _Output;
-    int _WindowSize;
-    unsigned long _windowStartTime;
-    PID myPID;
+        double _Setpoint, _Input, _Output;
+        int _WindowSize;
+        unsigned long _windowStartTime;
+        PID myPID;
 #endif // USE_PID
-};
-extern Relays Relay;
+    };
+    extern Relays Relay;
+}
 #endif

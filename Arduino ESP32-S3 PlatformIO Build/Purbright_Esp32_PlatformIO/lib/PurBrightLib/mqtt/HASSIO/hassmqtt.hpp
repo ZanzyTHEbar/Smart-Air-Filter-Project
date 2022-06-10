@@ -8,37 +8,41 @@
 #include <defines.hpp>
 #include <ArduinoHA.h>
 
-class HASSMQTT
+namespace AirFilter
 {
-public:
-  // Constructor
-  HASSMQTT();
-  virtual ~HASSMQTT();
+  class HASSMQTT
+  {
+  public:
+    // Constructor
+    HASSMQTT();
+    virtual ~HASSMQTT();
 
-  void loadMQTTConfig();
-  void begin();
-  void mqttLoop();
+    void loadMQTTConfig();
+    void begin();
+    void mqttLoop();
 
-  // Friends
-  friend class LDR;
-  friend void onMqttMessage(const char *topic, const uint8_t *payload, uint16_t length);
-  friend void onMqttConnected();
+    // Friends
+    friend class LDR;
+    friend void onMqttMessage(const char *topic, const uint8_t *payload, uint16_t length);
+    friend void onMqttConnected();
 
-private:
-  // Private functions
+  private:
+    // Private functions
 
-  // Private variable
-  char *_pumpTopic;
-  char *_pumpInTopic;
-  char *_menuTopic;
-  char *_speakerTopic;
-  char *_infoTopic;
+    // Private variable
+    char *_pumpTopic;
+    char *_pumpInTopic;
+    char *_menuTopic;
+    char *_speakerTopic;
+    char *_infoTopic;
 
-  unsigned long lastReadAt;
-  unsigned long lastAvailabilityToggleAt;
-  bool lastInputState;
-  unsigned long lastSentAt;
-};
+    unsigned long lastReadAt;
+    unsigned long lastAvailabilityToggleAt;
+    bool lastInputState;
+    unsigned long lastSentAt;
+  };
 
-extern HASSMQTT hassmqtt;
+  extern HASSMQTT hassmqtt;
+}
+
 #endif // HAMQTT_HPP

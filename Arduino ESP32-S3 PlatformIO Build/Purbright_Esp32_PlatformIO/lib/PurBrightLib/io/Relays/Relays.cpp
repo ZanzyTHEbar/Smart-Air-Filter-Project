@@ -1,50 +1,52 @@
 #include "Relays.hpp"
 
-Relays::Relays()
+namespace AirFilter
+{
+    Relays::Relays()
 #if USE_PID
-    : _Setpoint(),
-      _Input(),
-      _Output(),
-      _WindowSize(5000),
-      _windowStartTime(),
-      myPID(&_Input, &_Output, &_Setpoint, 2, 5, 1, DIRECT)
+        : _Setpoint(),
+          _Input(),
+          _Output(),
+          _WindowSize(5000),
+          _windowStartTime(),
+          myPID(&_Input, &_Output, &_Setpoint, 2, 5, 1, DIRECT)
 #endif // USE_PID
-{
-#if USE_PID
-    _windowStartTime = millis();
-    // initialize the variables we're linked to
-    _Setpoint = 80;
-    // tell the PID to range between 0 and the full window size
-    myPID.SetOutputLimits(0, _WindowSize);
-    // turn the PID on
-    myPID.SetMode(AUTOMATIC);
-#endif // USE_PID
-}
-
-Relays::~Relays()
-{
-}
-
-void Relays::SetupRelays()
-{
-    // use a c++ ranged for loop to iterate through the relay pins
-    for (int pin : cfg.config.relays_pin)
     {
-        pinMode(pin, OUTPUT);
-        digitalWrite(pin, LOW);
+#if USE_PID
+        _windowStartTime = millis();
+        // initialize the variables we're linked to
+        _Setpoint = 80;
+        // tell the PID to range between 0 and the full window size
+        myPID.SetOutputLimits(0, _WindowSize);
+        // turn the PID on
+        myPID.SetMode(AUTOMATIC);
+#endif // USE_PID
     }
-}
-/******************************************************************************
- * Function: Control the Relays
- * Description: This function turns the relays in the stack on and off.
- * Parameters: int, bool, long (in seconds)
- * Return: None
- ******************************************************************************/
-void Relays::RelayOnOff(byte relay, bool on)
-{
-    digitalWrite(relay, on);
-    log_i("Relay %s", on ? "On" : "Off");
-}
+
+    Relays::~Relays()
+    {
+    }
+
+    void Relays::SetupRelays()
+    {
+        // use a c++ ranged for loop to iterate through the relay pins
+        for (int pin : cfg.config.relays_pin)
+        {
+            pinMode(pin, OUTPUT);
+            digitalWrite(pin, LOW);
+        }
+    }
+    /******************************************************************************
+     * Function: Control the Relays
+     * Description: This function turns the relays in the stack on and off.
+     * Parameters: int, bool, long (in seconds)
+     * Return: None
+     ******************************************************************************/
+    void Relays::RelayOnOff(byte relay, bool on)
+    {
+        digitalWrite(relay, on);
+        log_i("Relay %s", on ? "On" : "Off");
+    }
 
 /******************************************************************************
  * Function: Humidity Related Relay Control
@@ -55,24 +57,25 @@ void Relays::RelayOnOff(byte relay, bool on)
  ******************************************************************************/
 #if USE_PID
 #if USE_SHT31_SENSOR
-void Relays::HumRelayOnOff()
-{
-    float climate_data = humidity.StackHumidity();
-    Input = climate_data;
-    myPID.Compute();
+    void Relays::HumRelayOnOff()
+    {
+        float climate_data = humidity.StackHumidity();
+        Input = climate_data;
+        myPID.Compute();
 
-    // turn the output pin on/off based on pid output
-    unsigned long now = millis();
-    if (now - _windowStartTime > _WindowSize)
-    { // time to shift the Relay Window
-        _windowStartTime += _WindowSize;
+        // turn the output pin on/off based on pid output
+        unsigned long now = millis();
+        if (now - _windowStartTime > _WindowSize)
+        { // time to shift the Relay Window
+            _windowStartTime += _WindowSize;
+        }
+        if (Output > now - _windowStartTime)
+            digitalWrite(cfg.config.relays_pin[0], HIGH);
+        else
+            digitalWrite(cfg.config.relays_pin[0], LOW);
     }
-    if (Output > now - _windowStartTime)
-        digitalWrite(cfg.config.relays_pin[0], HIGH);
-    else
-        digitalWrite(cfg.config.relays_pin[0], LOW);
-}
 #endif // USE_SHT31_SENSOR
 #endif // USE_PID
 
-Relays Relay;
+    Relays Relay;
+}

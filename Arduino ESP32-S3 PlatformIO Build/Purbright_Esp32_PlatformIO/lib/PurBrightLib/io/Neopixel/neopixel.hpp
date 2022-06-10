@@ -3,21 +3,24 @@
 #define NEOPIXEL_hpp
 #include <defines.hpp>
 
-class Neopixel
+namespace AirFilter
 {
-public:
-    // Functions
-    Neopixel();
-    virtual ~Neopixel();
-    void begin();
-    void colorWipe(uint32_t c, uint8_t wait);
-    void colorWipeAll(uint32_t c, uint8_t wait);
-    void Settings();
-    void Plus();
-    void Minus();
-    
-private:
-};
+    class Neopixel
+    {
+    public:
+        // Functions
+        Neopixel();
+        virtual ~Neopixel();
+        void begin();
+        void colorWipe(uint32_t c, uint8_t wait);
+        void colorWipeAll(uint32_t c, uint8_t wait);
+        void Settings();
+        void Plus();
+        void Minus();
 
-extern Neopixel neopixel;
+    private:
+    };
+
+    extern Neopixel neopixel;
+}
 #endif

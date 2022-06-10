@@ -7,7 +7,7 @@ namespace AirFilter
      * StateManager
      * All Project States are managed here
      */
-    enum State
+    enum _State
     {
         Starting,
         ConnectingToWifi,
@@ -31,6 +31,16 @@ namespace AirFilter
         Buttons_ManAut
     };
 
+    enum _Pump_state
+    {
+        UNDEF,
+        PUMP_OFF,
+        PUMP_ON,
+        PUMP_MANUAL,
+        PUMP_AUTOMATIC,
+        PUMP_SERIAL_REPORT
+    };
+
     /*
      * EventManager
      * All Project Events are managed here
@@ -40,11 +50,11 @@ namespace AirFilter
     {
     public:
         StateManager() : current_state(Starting) {}
-        void setState(State state);
-        State getCurrentState();
+        void setState(_State state);
+        _State getCurrentState();
 
     private:
-        State current_state;
+        _State current_state;
     };
 
 }
