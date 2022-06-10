@@ -1,8 +1,6 @@
 #include "timedtasks.hpp"
 
-TimedTasks::TimedTasks(void)
-{
-}
+TimedTasks::TimedTasks() {}
 
 TimedTasks::~TimedTasks(void)
 {
@@ -96,31 +94,38 @@ void TimedTasks::Run_mDNS_Background_every_10_Seconds()
   }
 }
 
-void TimedTasks::Run_Check_DataJSON_5()
+exeClass::exeClass(void) { inList = false; }
+
+// Before we die, we need to tell our master to let us go.
+exeClass::~exeClass(void) { theList.unlinkObj(this); }
+
+void exeClass::addSelf(void)
 {
-  if (_Timer_5s_2.ding())
+  if (!inList)
   {
-    accumulatedata.InitAccumulateDataJson();
-    _Timer_5s_2.start();
+    theList.addToTop(this);
+    inList = true;
   }
 }
 
-void TimedTasks::setCallback(void (*funct)(void))
-{
-  callback = funct;
-  hookup();
-}
+// Our call that goes into loop() to run the idlers.
+exeMgr::exeMgr(void) : linkList() {}
 
-void TimedTasks::setSeconds(float seconds) { setTime(seconds * 1000); }
+exeMgr::~exeMgr(void) {}
 
-void TimedTasks::idle(void)
+// Run down the list and call the idle() method on each one.
+void exeMgr::execute(void)
 {
 
-  if (ding() && callback)
+  exeClass *trace;
+
+  trace = (exeClass *)getFirst();
+  while (trace != NULL)
   {
-    stepTime();
-    callback();
+    trace->execute();
+    trace = (exeClass *)trace->getNext();
   }
 }
 
 TimedTasks timedTasks;
+exeMgr theList;

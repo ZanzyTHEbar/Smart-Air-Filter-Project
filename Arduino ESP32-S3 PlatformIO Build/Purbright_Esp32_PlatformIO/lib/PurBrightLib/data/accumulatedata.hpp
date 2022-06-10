@@ -2,17 +2,22 @@
 #define ACCUMULATEDATA_HPP
 #include <defines.hpp>
 
-class AccumulateData
+class AccumulateData : public exeClass
 {
 public:
-    AccumulateData();
-    virtual ~AccumulateData();
+    AccumulateData(float seconds);
+    AccumulateData(void);
+    virtual ~AccumulateData(void);
+
+    virtual void execute(void);
 
     void InitAccumulateData();
     String InitAccumulateDataJson();
     bool SendData();
-
+    void begin(PIR *pir_sensor);
+    timeObj Timer_5s;
 private:
+    PIR *_pir_sensor;
 };
 
 extern AccumulateData accumulatedata;

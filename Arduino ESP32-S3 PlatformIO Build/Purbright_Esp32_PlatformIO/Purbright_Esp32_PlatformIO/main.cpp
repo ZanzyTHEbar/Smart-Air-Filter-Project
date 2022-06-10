@@ -32,6 +32,8 @@ void setup()
   pump.SetupPumpClass();
   buttons.SetupButtons();
   pir.SetupPIR();
+  accumulatedata.begin(&pir);
+  accumulatedata.addSelf();
   // purrMqtt.MQTTSetup();
 
   Serial.println(F("Setup Complete"));
@@ -39,11 +41,6 @@ void setup()
 
 void loop()
 {
-  /* delay(1000);
-  digitalWrite(14, HIGH);
-  delay(1000);
-  digitalWrite(14, LOW); */
-
   pump.PumpLoop(); // Setup the main loop for the pump
   pir.run();       // Setup the main loop for the PIR sensor
   buttons.ButtonLoop(); // Setup the main loop for the buttons
@@ -61,6 +58,7 @@ void loop()
   }
   
   // network.SetupmDNSLoop(); // Setup mDNS loop
+  theList.execute();
   timedTasks.checkTurnOffSettings();
   timedTasks.Run_Check_DataJSON_5();
   delay(100);

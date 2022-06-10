@@ -1,11 +1,31 @@
 #include "accumulatedata.hpp"
 
-AccumulateData::AccumulateData()
+AccumulateData::AccumulateData(float seconds) : exeClass(), _pir_sensor(NULL)
+{
+    float ms = seconds * 1000;
+    Timer_5s.setTime(ms);
+}
+
+AccumulateData::AccumulateData(void)
 {
 }
 
 AccumulateData::~AccumulateData()
 {
+}
+
+void AccumulateData::begin(PIR *pir_sensor)
+{
+    _pir_sensor = pir_sensor;
+}
+
+void AccumulateData::execute()
+{
+    if (Timer_5s.ding())
+    {
+        InitAccumulateDataJson();
+        Timer_5s.start();
+    }
 }
 
 /******************************************************************************
@@ -58,7 +78,7 @@ String AccumulateData::InitAccumulateDataJson()
     bool speakers[2] = {1, 2};
     for (int i = 0; i < 2; i++)
     {
-        Speakers.add(speakers[i]);
+        Doc["Speaker"][i] = Speakers.add(speakers[i]);
     }
 
     // Speakers
@@ -80,10 +100,12 @@ String AccumulateData::InitAccumulateDataJson()
 
     String jsonString;
     auto error = serializeJson(Doc, jsonString);
-    if (error){
+    if (error)
+    {
         log_e("Failed to serialize MQTT JSON File");
     }
-    else{
+    else
+    {
         log_d("MQTT Json: %s", jsonString.c_str());
     }
     return jsonString;
