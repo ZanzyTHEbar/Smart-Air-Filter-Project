@@ -1,6 +1,7 @@
 #include <defines.hpp>
 #include <ESPmDNS.h>
 
+using namespace AirFilter;
 /**
  * @brief Namespace for mDNS Discovery
  */

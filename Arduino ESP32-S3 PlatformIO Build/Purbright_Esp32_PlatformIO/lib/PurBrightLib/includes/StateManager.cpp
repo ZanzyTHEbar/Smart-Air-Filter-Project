@@ -2,12 +2,12 @@
 
 namespace AirFilter
 {
-    void StateManager::setState(State state)
+    void StateManager::setState(_State state)
     {
         current_state = state;
     }
 
-    State StateManager::getCurrentState()
+    _State StateManager::getCurrentState()
     {
         return current_state;
     }

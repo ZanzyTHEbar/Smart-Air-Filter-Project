@@ -4,7 +4,6 @@
 
 namespace AirFilter
 {
-
     class LEDManager
     {
     private:
