@@ -14,8 +14,7 @@ namespace AirFilter
         void ButtonLoop();
         void SetupButtons();
 
-        _Buttons_state CheckState(const char *state);
-        _Buttons_state OnOff();
+        _Button_states OnOff();
 
     private:
         // functions

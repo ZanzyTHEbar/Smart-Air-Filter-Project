@@ -2,7 +2,7 @@
 
 namespace AirFilter
 {
-    _Buttons_state _buttons_state_t = Buttons_OFF;
+    _Button_states _button_states_t = Buttons_OFF;
 
     Buttons::Buttons()
     {
@@ -21,44 +21,25 @@ namespace AirFilter
         pinMode(TouchMinus, INPUT);
     }
 
-    _Buttons_state Buttons::CheckState(const char *state)
-    {
-        switch (_buttons_state_t)
-        {
-        case Buttons_OFF: // Undefined
-            break;
-        case Buttons_ON:
-
-            break;
-        case Buttons_PLUS:
-
-            break;
-        case Buttons_MINUS:
-
-            break;
-        }
-        return _buttons_state_t;
-    }
-
     void Buttons::ReadPowerButton()
     {
         // Button Check
         if (!digitalRead(TouchOnOff) && TouchOnOffOld)
         {
             TouchOnOffPN = 1;
-            _buttons_state_t = Buttons_ON;
+            _button_states_t = Buttons_ON;
         }
         else
         {
             TouchOnOffPN = 0;
-            _buttons_state_t = Buttons_OFF;
+            _button_states_t = Buttons_OFF;
         }
 
         TouchOnOffOld = digitalRead(TouchOnOff);
 
         if (TouchOnOffPN)
         {
-            _buttons_state_t = OnOff();
+            _button_states_t = OnOff();
         }
     }
 
@@ -162,22 +143,22 @@ namespace AirFilter
     }
 
     // OnOff Button Code
-    _Buttons_state Buttons::OnOff()
+    _Button_states Buttons::OnOff()
     {
         if (S_OnOff == 0)
         {
             S_OnOff = 1;
             neopixel.colorWipeAll(strip.Color(0, 0, 127), 50); // Soft Blue
             S_ManAut = true;
-            _buttons_state_t = Buttons_ON;
-            return _buttons_state_t;
+            _button_states_t = Buttons_ON;
+            return _button_states_t;
         }
         else
         {
             S_OnOff = false;
             All_Off();
-            _buttons_state_t = Buttons_OFF;
-            return _buttons_state_t;
+            _button_states_t = Buttons_OFF;
+            return _button_states_t;
         }
         return Buttons_OFF;
     }

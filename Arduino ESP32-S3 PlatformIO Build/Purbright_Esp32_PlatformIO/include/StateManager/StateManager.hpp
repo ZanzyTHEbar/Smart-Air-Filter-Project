@@ -3,6 +3,10 @@
 
 namespace AirFilter
 {
+    /*
+     * StateManager
+     * All Project States are managed here
+     */
     enum State
     {
         Starting,
@@ -17,14 +21,20 @@ namespace AirFilter
         MQTTError,
     };
 
-    enum _Buttons_state
+    enum _Button_states
     {
         UNDEF,
         Buttons_OFF,
         Buttons_ON,
         Buttons_PLUS,
         Buttons_MINUS,
+        Buttons_ManAut
     };
+
+    /*
+     * EventManager
+     * All Project Events are managed here
+     */
 
     class StateManager
     {
