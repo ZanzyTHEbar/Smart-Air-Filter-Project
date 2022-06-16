@@ -33,29 +33,27 @@ namespace AirFilter
         log_i("Setting up MQTT...");
 
         // Local Mosquitto Connection -- Start
-        if (mqttClient.connect(DEFAULT_HOSTNAME))
-        {
-            // connection succeeded
-            log_i("Connection succeeded. Subscribing to the topic [%s]", _pumpTopic);
-            mqttClient.subscribe(_pumpTopic);
-            log_i("Successfully subscribed to the topic.");
-            return true;
-        }
-        else
+        if (!mqttClient.connect(DEFAULT_HOSTNAME))
         {
             // connection failed
             log_i("Connection failed. MQTT client state is: %d", mqttClient.state());
+            cfg.config.MQTTConnectedState = mqttClient.state();
             return false;
         }
-        // Local Mosquitto Connection -- End
+
+        // connection succeeded
         cfg.config.MQTTConnectedState = mqttClient.state();
+        log_i("Connection succeeded. Subscribing to the topic [%s]", _pumpTopic);
+        mqttClient.subscribe(_pumpTopic);
+        log_i("Successfully subscribed to the topic.");
+        // Local Mosquitto Connection -- End
         _pumpTopic = PUMP_TOPIC;
         _pumpInTopic = PUMP_IN_TOPIC;
         _menuTopic = MENU_TOPIC;
         _infoTopic = "user/info";
         /* _speakerTopic = SPEAKER_TOPIC;
         _waterlevelTopic = WATER_LEVEL_TOPIC; */
-        return mqttClient.state();
+        return true;
     }
 
     void BASEMQTT::Publish(const char *topic, const char *payload)
